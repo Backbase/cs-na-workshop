@@ -56,6 +56,15 @@ const routes: Routes = [
         },
       },
       {
+        path: 'marketing',
+        loadChildren: () =>
+          import('@backbase/marketing-journey').then((m) => m.MarketingJourneyModule),
+        data: {
+          title: $localize`:@@accounts.nav.item.title:Marketing - Retail Banking`,
+          cssClasses: ['container-fluid', 'container'],
+        },
+      },
+      {
         path: 'transfers',
         data: { cssClasses: ['container--fixed-width mx-auto'] },
         children: [
