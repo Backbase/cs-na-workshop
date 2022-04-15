@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/retail/data-access-mocks",
+  "sourceRoot": "libs/retail/data-access-mocks/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/retail/data-access-mocks/src/test.ts",
+        "tsConfig": "libs/retail/data-access-mocks/tsconfig.spec.json",
+        "karmaConfig": "libs/retail/data-access-mocks/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/retail/data-access-mocks/src/**/*.ts", "libs/retail/data-access-mocks/src/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:retail", "region:agnostic", "type:data-access-mock"]
+}

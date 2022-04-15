@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "projects": {
+    "retail-assets": "libs/retail/assets",
+    "retail-communication": "libs/retail/feature/communication",
+    "retail-layout": "libs/retail/feature/layout",
+    "retail-mocks": "libs/retail/data-access-mocks",
+    "retail-usa": "apps/retail-usa",
+    "retail-usa-e2e": "apps/retail-usa-e2e",
+    "shared-app-core": "libs/shared/util/app-core",
+    "shared-auth": "libs/shared/feature/auth",
+    "shared-routable-modal": "libs/shared/feature/routable-modal",
+    "shared-user-context": "libs/shared/feature/user-context"
+  }
+}

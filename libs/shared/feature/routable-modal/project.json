@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/feature/routable-modal",
+  "sourceRoot": "libs/shared/feature/routable-modal/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/shared/feature/routable-modal/src/test.ts",
+        "tsConfig": "libs/shared/feature/routable-modal/tsconfig.spec.json",
+        "karmaConfig": "libs/shared/feature/routable-modal/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/feature/routable-modal/src/**/*.ts",
+          "libs/shared/feature/routable-modal/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:shared", "region:agnostic", "type:feature"]
+}

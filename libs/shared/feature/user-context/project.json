@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/feature/user-context",
+  "sourceRoot": "libs/shared/feature/user-context/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/shared/feature/user-context/src/test.ts",
+        "tsConfig": "libs/shared/feature/user-context/tsconfig.spec.json",
+        "karmaConfig": "libs/shared/feature/user-context/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/feature/user-context/src/**/*.ts",
+          "libs/shared/feature/user-context/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:shared", "region:agnostic", "type:feature"]
+}

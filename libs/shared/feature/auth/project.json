@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/feature/auth",
+  "sourceRoot": "libs/shared/feature/auth/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/shared/feature/auth/src/test.ts",
+        "tsConfig": "libs/shared/feature/auth/tsconfig.spec.json",
+        "karmaConfig": "libs/shared/feature/auth/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/feature/auth/src/**/*.ts", "libs/shared/feature/auth/src/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:shared", "region:agnostic", "type:feature"]
+}

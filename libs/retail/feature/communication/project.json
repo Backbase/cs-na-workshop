@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/retail/feature/communication",
+  "sourceRoot": "libs/retail/feature/communication/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/retail/feature/communication/src/test.ts",
+        "tsConfig": "libs/retail/feature/communication/tsconfig.spec.json",
+        "karmaConfig": "libs/retail/feature/communication/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/retail/feature/communication/src/**/*.ts",
+          "libs/retail/feature/communication/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:retail", "region:agnostic", "type:feature"]
+}

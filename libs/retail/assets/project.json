@@ -1,0 +1,7 @@
+{
+  "projectType": "library",
+  "root": "libs/retail/assets",
+  "sourceRoot": "libs/retail/assets/src",
+  "targets": {},
+  "tags": ["type:assets", "scope:retail", "region:agnostic"]
+}

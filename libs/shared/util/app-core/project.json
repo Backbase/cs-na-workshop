@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/shared/util/app-core",
+  "sourceRoot": "libs/shared/util/app-core/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/shared/util/app-core/src/test.ts",
+        "tsConfig": "libs/shared/util/app-core/tsconfig.spec.json",
+        "karmaConfig": "libs/shared/util/app-core/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/shared/util/app-core/src/**/*.ts", "libs/shared/util/app-core/src/**/*.html"]
+      }
+    }
+  },
+  "tags": ["scope:shared", "region:agnostic", "type:util"]
+}
