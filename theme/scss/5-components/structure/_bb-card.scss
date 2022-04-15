@@ -1,0 +1,39 @@
+/// Setting the level of shadow on the bb-card.
+/// Replacing `-sm` with any of these modifiers changes the level of shadow:
+/// `sm`, `md`, `lg`, `xl`.
+// $bb-card-shadow-level-sm:
+
+/// Setting the border styles of bb-card.
+/// The border styles are split up in `radius`, `width` and `color`.
+// $bb-card-border-radius:
+
+/// Setting the background colors of bb-card.
+/// Besides the default, the background colors are organized in `highlight` and `warning`.
+// $bb-card-background-color:
+
+/// Setting the padding on bb-card-header.
+/// Modifiers are available for small (`sm`) or medium (`md`) padding.
+/// Also for applyinng padding when bb-card-header is the only child element in bb-card.
+// $bb-card-header-padding-sm:
+
+/// Setting the box-shadow on bb-card-header.
+/// Using this variable would set
+/// Also for applyinng padding when bb-card-header is the only child element in bb-card.
+// $bb-card-header-focus-box-shadow:
+
+/// Set the padding values on bb-card, bb-card-body, bb-card-footer.
+/// Different variables are available for setting padding to bb-card elements.
+// $bb-card-padding-vertical:
+
+/// Set the main color of the bb-card.
+// $bb-card-color:
+
+/// Set the caption color or background-color of bb-card.
+// $bb-card-caption-background-color:
+
+/// Sets the size of margin for bb-card-title
+// $bb-card-margin-title:
+
+/// Set the style values when focus is active on bb-card
+// $bb-card-focus-border-primary:
+

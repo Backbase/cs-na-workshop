@@ -18,7 +18,7 @@
     "lint": "nx workspace-lint && npm run lint:affected",
     "lint:affected": "nx affected --target=lint --base=origin/${CHANGE_TARGET:-main}",
     "lint:all": "nx run-many --all --target=lint",
-    "ng": "nx",
+    "ng": "ng",
     "start": "nx serve",
     "test": "nx test",
     "test:affected": "nx affected:test --base=origin/${CHANGE_TARGET:-main}"
@@ -86,7 +86,7 @@
     "@angular/compiler-cli": "~12.2.14",
     "@angular/language-service": "~12.2.14",
     "@backbase/actions-mocks-provider-ang": "4.0.3",
-    "@backbase/backbase-theme": "2.320.0-pr.8",
+    "@backbase/backbase-theme": "^2.320.0",
     "@backbase/backbase-theme-retail-preset": "1.23.0",
     "@backbase/notifications-mocks-provider-ang": "5.0.1",
     "@nrwl/cli": "13.7.1",

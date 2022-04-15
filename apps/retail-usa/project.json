@@ -26,7 +26,7 @@
             "output": "assets"
           }
         ],
-        "styles": ["apps/retail-usa/src/styles.scss"],
+        "styles": ["apps/retail-usa/src/styles.scss", "theme/scss/main.scss"],
         "scripts": []
       },
       "configurations": {
