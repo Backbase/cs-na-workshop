@@ -1,1 +1,36 @@
-<p>user-form-view works!</p>
+<form class="card" [formGroup]="formGroup">
+  <div class="card-header">
+      <h1>User form</h1>
+  </div>
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <div class="form-group">
+        <bb-input-text-ui
+          label="First Name"
+          formControlName="firstName"
+          placeholder="Name"
+          autoComplete="given-name"
+        ></bb-input-text-ui>
+      </div>
+      <div class="form-group">
+        <bb-input-text-ui
+          label="Middle Name"
+          formControlName="middleName"
+          placeholder="Name"
+          autoComplete="additional-name"
+        ></bb-input-text-ui>
+      </div>
+      <div class="form-group">
+        <bb-input-text-ui
+          label="Last Name"
+          formControlName="lastName"
+          placeholder="Name"
+          autoComplete="family-name"
+        ></bb-input-text-ui>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()" >Next</button>
+  </div>
+</form>

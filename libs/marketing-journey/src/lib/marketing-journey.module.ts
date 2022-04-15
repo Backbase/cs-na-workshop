@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { InputTextModule } from '@backbase/ui-ang';
+
 import { UserFormViewComponent } from './views/user-form-view/user-form-view.component';
 import { LifeGoalsViewComponent } from './views/life-goals-view/life-goals-view.component';
 import { PromotionsViewComponent } from './views/promotions-view/promotions-view.component';
@@ -22,7 +26,7 @@ const routes = [
   }
 ]
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes), ReactiveFormsModule, InputTextModule],
   declarations: [
     UserFormViewComponent,
     LifeGoalsViewComponent,
