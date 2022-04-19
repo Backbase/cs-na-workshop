@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.peachtree.ngrx</groupId>
+  <artifactId>NgRx</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Backbase :: Peachtree Bank NgRx Workshop API Spec</name>
+
+  <properties>
+    <!-- start::properties-from-community -->
+    <codegen.angularVersion>12.2.14</codegen.angularVersion>
+    <codegen.npmPackage.name>@backbase/ngrx-workshpop</codegen.npmPackage.name>
+    <codegen.buildDist>dist/libs/ngrx-http-ang</codegen.buildDist>
+    <codegen.npmPackage.version>1.0.0</codegen.npmPackage.version>
+    <codegen.generateMocks>true</codegen.generateMocks>
+    <codegen.apiModulePrefix>Ngrx</codegen.apiModulePrefix>
+    <codegen.serviceSuffix>HttpService</codegen.serviceSuffix>
+    <!-- end::properties-from-community -->
+  </properties>
+
+  <build>
+    <plugins>
+      <!-- start::boat-plugin -->
+      <plugin>
+        <groupId>com.backbase.oss</groupId>
+        <artifactId>boat-maven-plugin</artifactId>
+        <version>0.14.3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <inputSpec>${project.basedir}/api.yaml</inputSpec>
+              <generatorName>boat-angular</generatorName>
+              <additionalProperties>ngVersion=${codegen.angularVersion},npmName=${codegen.npmPackage.name},npmVersion=${codegen.npmPackage.version},withMocks=${codegen.generateMocks},apiModulePrefix=${codegen.apiModulePrefix},buildDist=${codegen.buildDist},serviceSuffix=${codegen.serviceSuffix}</additionalProperties>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- end::boat-plugin -->
+    </plugins>
+  </build>
+</project>
