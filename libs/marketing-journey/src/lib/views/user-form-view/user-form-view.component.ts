@@ -60,12 +60,10 @@ export class UserFormViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('hey jamel');
     this.store
       .pipe(select(getUser))
       .pipe(take(1))
       .subscribe((user) => {
-        console.log('InputAuthorizedUsersComponent', user);
         this.formGroup.patchValue(user);
       });
   }
