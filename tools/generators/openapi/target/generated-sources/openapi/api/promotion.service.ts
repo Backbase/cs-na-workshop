@@ -21,8 +21,8 @@ import { Observable }                                        from 'rxjs';
 import { Promotion } from '../model/models';
 import { SubmitPromotionForm } from '../model/models';
 
-import { NGRX_BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
-import { NgrxConfiguration }                                     from '../configuration';
+import { NGRX_PROMOTIONS_BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
+import { NgrxPromotionsConfiguration }                                     from '../configuration';
 
 
 export interface SubmitPromotionFormRequestParams {
@@ -38,10 +38,10 @@ export class PromotionHttpService {
 
     protected basePath = '';
     public defaultHeaders = new HttpHeaders();
-    public configuration = new NgrxConfiguration();
+    public configuration = new NgrxPromotionsConfiguration();
     public encoder: HttpParameterCodec;
 
-    constructor(protected httpClient: HttpClient, @Optional() @Inject(NGRX_BASE_PATH) basePath: string, @Optional() configuration: NgrxConfiguration) {
+    constructor(protected httpClient: HttpClient, @Optional() @Inject(NGRX_PROMOTIONS_BASE_PATH) basePath: string, @Optional() configuration: NgrxPromotionsConfiguration) {
         if (configuration) {
             this.configuration = configuration;
         }

@@ -2,7 +2,7 @@ import { HttpParameterCodec } from '@angular/common/http';
 
 import { InjectionToken } from '@angular/core';
 
-export interface NgrxConfigurationParameters {
+export interface NgrxPromotionsConfigurationParameters {
     apiKeys?: {[ key: string ]: string};
     username?: string;
     password?: string;
@@ -18,7 +18,7 @@ export interface NgrxConfigurationParameters {
     credentials?: {[ key: string ]: string | (() => string | undefined)};
 }
 
-export class NgrxConfiguration {
+export class NgrxPromotionsConfiguration {
     apiKeys?: {[ key: string ]: string};
     username?: string;
     password?: string;
@@ -33,7 +33,7 @@ export class NgrxConfiguration {
      */
     credentials: {[ key: string ]: string | (() => string | undefined)};
 
-    constructor(configurationParameters: NgrxConfigurationParameters = {}) {
+    constructor(configurationParameters: NgrxPromotionsConfigurationParameters = {}) {
         this.apiKeys = configurationParameters.apiKeys;
         this.username = configurationParameters.username;
         this.password = configurationParameters.password;
@@ -51,7 +51,7 @@ export class NgrxConfiguration {
 
     /**
      * Select the correct content-type to use for a request.
-     * Uses {@link NgrxConfiguration#isJsonMime} to determine the correct content-type.
+     * Uses {@link NgrxPromotionsConfiguration#isJsonMime} to determine the correct content-type.
      * If no content type is found return the first found type if the contentTypes is not empty
      * @param contentTypes - the array of content types that are available for selection
      * @returns the selected content-type or <code>undefined</code> if no selection could be made.
@@ -70,7 +70,7 @@ export class NgrxConfiguration {
 
     /**
      * Select the correct accept content-type to use for a request.
-     * Uses {@link NgrxConfiguration#isJsonMime} to determine the correct accept content-type.
+     * Uses {@link NgrxPromotionsConfiguration#isJsonMime} to determine the correct accept content-type.
      * If no content type is found return the first found type if the contentTypes is not empty
      * @param accepts - the array of content types that are available for selection.
      * @returns the selected content-type or <code>undefined</code> if no selection could be made.
@@ -110,5 +110,5 @@ export class NgrxConfiguration {
     }
 }
 
-export const CONFIG_TOKEN = new InjectionToken('api-data-module NgrxConfiguration');
+export const CONFIG_TOKEN = new InjectionToken('api-data-module NgrxPromotionsConfiguration');
 

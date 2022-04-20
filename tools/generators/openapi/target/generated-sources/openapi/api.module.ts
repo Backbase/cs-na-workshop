@@ -1,5 +1,5 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
-import { NgrxConfiguration, CONFIG_TOKEN } from './configuration';
+import { NgrxPromotionsConfiguration, CONFIG_TOKEN } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 import { DataModulesManager } from "@backbase/foundation-ang/data-http";
@@ -10,22 +10,22 @@ import { DataModulesManager } from "@backbase/foundation-ang/data-http";
   exports:      [],
   providers:    []
 })
-export class NgrxApiModule {
-    public static forRoot(configurationFactory: () => NgrxConfiguration): ModuleWithProviders<NgrxApiModule> {
+export class NgrxPromotionsApiModule {
+    public static forRoot(configurationFactory: () => NgrxPromotionsConfiguration): ModuleWithProviders<NgrxPromotionsApiModule> {
         return {
-            ngModule: NgrxApiModule,
-            providers: [ { provide: NgrxConfiguration, useFactory: configurationFactory } ]
+            ngModule: NgrxPromotionsApiModule,
+            providers: [ { provide: NgrxPromotionsConfiguration, useFactory: configurationFactory } ]
         };
     }
 
-    constructor( @Optional() @SkipSelf() parentModule: NgrxApiModule,
+    constructor( @Optional() @SkipSelf() parentModule: NgrxPromotionsApiModule,
                  @Optional() http: HttpClient,
                  @Optional() dataModulesManager: DataModulesManager | null,
-                 config: NgrxConfiguration,
+                 config: NgrxPromotionsConfiguration,
 
         ) {
         if (parentModule) {
-            throw new Error('NgrxApiModule is already loaded. Import in your base AppModule only.');
+            throw new Error('NgrxPromotionsApiModule is already loaded. Import in your base AppModule only.');
         }
         if (!http) {
             throw new Error('You need to import the HttpClientModule in your AppModule! \n' +

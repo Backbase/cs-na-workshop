@@ -1,4 +1,4 @@
-## @backbase/ngrx-workshpop@1.0.0
+## @backbase/ngrx-workshop@1.0.0
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install @backbase/ngrx-workshpop@1.0.0 --save
+npm install @backbase/ngrx-workshop@1.0.0 --save
 ```
 
 _without publishing (not recommended):_
@@ -39,7 +39,7 @@ npm link
 
 In your project:
 ```
-npm link @backbase/ngrx-workshpop
+npm link @backbase/ngrx-workshop
 ```
 
 __Note for Windows users:__ The Angular CLI has troubles to use linked npm packages.
@@ -54,7 +54,7 @@ In your Angular project:
 
 ```
 // without configuring providers
-import { ApiModule } from '@backbase/ngrx-workshpop';
+import { ApiModule } from '@backbase/ngrx-workshop';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -73,17 +73,17 @@ export class AppModule {}
 
 ```
 // configuring providers
-import { NgrxApiModule, NgrxConfiguration, NgrxConfigurationParameters } from '@backbase/ngrx-workshpop';
+import { NgrxPromotionsApiModule, NgrxPromotionsConfiguration, NgrxPromotionsConfigurationParameters } from '@backbase/ngrx-workshop';
 
-export function apiConfigFactory (): NgrxConfiguration => {
-  const params: NgrxConfigurationParameters = {
-    // set configuration parameters here: check the NgrxConfigurationParameters type for options
+export function apiConfigFactory (): NgrxPromotionsConfiguration => {
+  const params: NgrxPromotionsConfigurationParameters = {
+    // set configuration parameters here: check the NgrxPromotionsConfigurationParameters type for options
   }
-  return new NgrxConfiguration(params);
+  return new NgrxPromotionsConfiguration(params);
 }
 
 @NgModule({
-    imports: [ NgrxApiModule.forRoot(apiConfigFactory) ],
+    imports: [ NgrxPromotionsApiModule.forRoot(apiConfigFactory) ],
     declarations: [ AppComponent ],
     providers: [],
     bootstrap: [ AppComponent ]
@@ -93,15 +93,15 @@ export class AppModule {}
 
 ```
 // configuring providers with an authentication service that manages your access tokens
-import { NgrxApiModule, NgrxConfiguration } from '@backbase/ngrx-workshpop';
+import { NgrxPromotionsApiModule, NgrxPromotionsConfiguration } from '@backbase/ngrx-workshop';
 
 @NgModule({
-    imports: [ NgrxApiModule ],
+    imports: [ NgrxPromotionsApiModule ],
     declarations: [ AppComponent ],
     providers: [
       {
-        provide: NgrxConfiguration,
-        useFactory: (authService: AuthService) => new NgrxConfiguration(
+        provide: NgrxPromotionsConfiguration,
+        useFactory: (authService: AuthService) => new NgrxPromotionsConfiguration(
           {
             basePath: environment.apiUrl,
             accessToken: authService.getAccessToken.bind(authService)
@@ -117,14 +117,14 @@ export class AppModule {}
 ```
 
 ```
-import { DefaultApi } from '@backbase/ngrx-workshpop';
+import { DefaultApi } from '@backbase/ngrx-workshop';
 
 export class AppComponent {
 	 constructor(private apiGateway: DefaultApi) { }
 }
 ```
 
-Note: The NgrxApiModule is restricted to being instantiated once app wide.
+Note: The NgrxPromotionsApiModule is restricted to being instantiated once app wide.
 This is to ensure that all services are treated as singletons.
 
 #### Using multiple OpenAPI files / APIs / ApiModules
@@ -155,21 +155,21 @@ export class AppModule {
 If different than the generated base path, during app bootstrap, you can provide the base path to your service.
 
 ```
-import { NGRX_BASE_PATH } from '@backbase/ngrx-workshpop';
+import { NGRX_PROMOTIONS_BASE_PATH } from '@backbase/ngrx-workshop';
 
 bootstrap(AppComponent, [
-    { provide: NGRX_BASE_PATH, useValue: 'https://your-web-service.com' },
+    { provide: NGRX_PROMOTIONS_BASE_PATH, useValue: 'https://your-web-service.com' },
 ]);
 ```
 or
 
 ```
-import { NGRX_BASE_PATH } from '@backbase/ngrx-workshpop';
+import { NGRX_PROMOTIONS_BASE_PATH } from '@backbase/ngrx-workshop';
 
 @NgModule({
     imports: [],
     declarations: [ AppComponent ],
-    providers: [{ provide: NGRX_BASE_PATH, useValue: 'https://your-web-service.com' }],
+    providers: [{ provide: NGRX_PROMOTIONS_BASE_PATH, useValue: 'https://your-web-service.com' }],
     bootstrap: [ AppComponent ]
 })
 export class AppModule {}
@@ -188,7 +188,7 @@ export const environment = {
 
 In the src/app/app.module.ts:
 ```
-import { NGRX_BASE_PATH } from '@backbase/ngrx-workshpop';
+import { NGRX_PROMOTIONS_BASE_PATH } from '@backbase/ngrx-workshop';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -196,7 +196,7 @@ import { environment } from '../environments/environment';
     AppComponent
   ],
   imports: [ ],
-  providers: [{ provide: NGRX_BASE_PATH, useValue: environment.API_BASE_PATH }],
+  providers: [{ provide: NGRX_PROMOTIONS_BASE_PATH, useValue: environment.API_BASE_PATH }],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
