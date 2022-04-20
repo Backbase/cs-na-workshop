@@ -1,1 +1,157 @@
-<p>user-form-view works!</p>
+<form class="card" [formGroup]="formGroup">
+  <div class="card-header d-flex">
+    <h1>User form</h1>
+    <button bbButton color="link">
+      <bb-icon-ui name="autorenew"></bb-icon-ui>
+      Sync Profile Data
+    </button>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="form-group col-12 col-md-4">
+        <bb-input-text-ui
+          label="First Name"
+          formControlName="firstName"
+          placeholder="Name"
+          autoComplete="given-name"
+        ></bb-input-text-ui>
+      </div>
+      <div class="form-group col-12 col-md-4">
+        <bb-input-text-ui
+          label="Middle Name"
+          formControlName="middleName"
+          placeholder="Name"
+          autoComplete="additional-name"
+        ></bb-input-text-ui>
+      </div>
+      <div class="form-group col-12 col-md-4">
+        <bb-input-text-ui
+          label="Last Name"
+          formControlName="lastName"
+          placeholder="Name"
+          autoComplete="family-name"
+        ></bb-input-text-ui>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12 col-md-6">
+        <bb-input-email-ui label="E-mail address" formControlName="email" placeholder="Please enter a value...">
+        </bb-input-email-ui>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <bb-input-phone-ui
+          label="Phone"
+          formControlName="phoneNumber"
+          placeholder="Phone number without country code"
+          autoComplete="tel-national"
+        ></bb-input-phone-ui>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12 col-md-6">
+        <bb-input-text-ui
+          label="Last 4 of Social Security Number"
+          formControlName="ssn"
+          placeholder="XXXX"
+        ></bb-input-text-ui>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <bb-amount-input-ui label="Income" formControlName="income" currency="USD" placeholder="0.00">
+        </bb-amount-input-ui>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-12 col-md-6">
+        <bb-dropdown-single-select-ui
+          label="Marital Status"
+          placeholder="Select Marital Status"
+          formControlName="maritalStatus"
+          [options]="martialStatus"
+          class="d-block bb-block bb-block--lg"
+        >
+        </bb-dropdown-single-select-ui>
+      </div>
+      <div class="form-group col-12 col-md-6">
+        <bb-dropdown-single-select-ui
+          label="Employment Status"
+          placeholder="Select Employment Status"
+          formControlName="employmentStatus"
+          [options]="employmentStatus"
+          class="d-block bb-block bb-block--lg"
+        >
+        </bb-dropdown-single-select-ui>
+      </div>
+    </div>
+    <fieldset formGroupName="address">
+      <legend>Address</legend>
+      <div class="row">
+        <div class="form-group col-12 col-md-6">
+          <bb-input-text-ui
+            label="Address line 1"
+            formControlName="line1"
+            placeholder="123 Street"
+            autoComplete="address-line1"
+          ></bb-input-text-ui>
+        </div>
+        <div class="form-group col-12 col-md-6">
+          <bb-input-text-ui
+            label="Address line 2"
+            formControlName="line2"
+            placeholder="Apt 23"
+            autoComplete="address-line2"
+          ></bb-input-text-ui>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-12 col-md-4">
+          <bb-input-text-ui
+            label="City"
+            formControlName="city"
+            placeholder="Atlanta"
+            autoComplete="address-level2"
+          ></bb-input-text-ui>
+        </div>
+        <div class="form-group col-12 col-md-4">
+          <bb-dropdown-single-select-ui
+            label="State"
+            placeholder="Select State"
+            formControlName="state"
+            [options]="states"
+          >
+          </bb-dropdown-single-select-ui>
+        </div>
+        <div class="form-group col-12 col-md-4">
+          <bb-input-text-ui
+            label="Zip Code"
+            formControlName="zipCode"
+            placeholder="XXXXX-XXXX"
+            autoComplete="postal-code"
+          ></bb-input-text-ui>
+        </div>
+      </div>
+    </fieldset>
+    <fieldset formArrayName="authorizedUsers" *ngIf="authorizedUsers.length">
+      <legend>Authorized Users</legend>
+      <bb-input-authorized-users
+        *ngFor="let authUser of authorizedUsers.controls"
+        [formGroup]="authUser"
+      ></bb-input-authorized-users>
+    </fieldset>
+    <button bbButton type="button" [block]="true" color="secondary" (click)="addUser()" class="mb-3">
+      <bb-icon-ui name="add"> </bb-icon-ui>
+      Add Authorized User
+    </button>
+
+    <div class="row">
+      <div class="form-group col-12">
+        <bb-input-checkbox-ui
+        label="I agree with the Terms & Conditions"
+        formControlName="agreement"
+      ></bb-input-checkbox-ui>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer bb-button-bar bb-block bb-block-md">
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Next</button>
+  </div>
+</form>

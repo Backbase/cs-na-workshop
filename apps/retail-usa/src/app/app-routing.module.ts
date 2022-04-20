@@ -38,14 +38,14 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'accounts',
+        redirectTo: 'my-accounts',
       },
 
       /**
        * Accounts & Cards
        */
       {
-        path: 'accounts',
+        path: 'my-accounts',
         loadChildren: () =>
           import('./journeys/accounts/accounts-transactions-wrapper/wrapper-accounts-transactions-journey.module').then((m) => m.AccountsTransactionsJourneyBundleModule),
         data: {
