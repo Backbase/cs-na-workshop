@@ -34,7 +34,7 @@ export interface SubmitPromotionFormRequestParams {
 @Injectable({
   providedIn: 'root'
 })
-export class PromotionHttpService {
+export class PromotionsHttpService {
 
     protected basePath = '';
     public defaultHeaders = new HttpHeaders();
@@ -135,7 +135,7 @@ export class PromotionHttpService {
             responseType = 'text';
         }
 
-        return this.httpClient.post<Array<Promotion>>(`${this.configuration.basePath}/promotion/submit`,
+        return this.httpClient.post<Array<Promotion>>(`${this.configuration.basePath}/promotions/submit`,
             _submitPromotionForm,
             {
                 responseType: <any>responseType,
@@ -152,7 +152,7 @@ export class PromotionHttpService {
         if (_submitPromotionForm === null || _submitPromotionForm === undefined) {
             throw new Error('Required parameter submitPromotionForm was null or undefined when calling submitPromotionForm.');
         }
-        return `${this.configuration.basePath}/promotion/submit`;
+        return `${this.configuration.basePath}/promotions/submit`;
     }
 
 }

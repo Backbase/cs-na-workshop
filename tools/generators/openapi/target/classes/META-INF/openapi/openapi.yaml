@@ -55,10 +55,10 @@ paths:
                     }
               schema:
                 $ref: '#/components/schemas/Promotions'
-  /promotion/submit:
+  /promotions/submit:
     post:
       tags:
-        - promotion
+        - promotions
       operationId: submitPromotionForm
       summary: Submit form data to return promotions
       requestBody:

@@ -2,10 +2,10 @@ import { createMocks } from '@backbase/foundation-ang/data-http';
 import { Provider } from '@angular/core';
 
 /**
-* Mocks provider for /promotion/submit URL pattern
+* Mocks provider for /promotions/submit URL pattern
 */
-export const PromotionHttpServiceSubmitPromotionFormMocksProvider: Provider = createMocks([{
-        urlPattern: "/promotion/submit",
+export const PromotionsHttpServiceSubmitPromotionFormMocksProvider: Provider = createMocks([{
+        urlPattern: "/promotions/submit",
         method: "POST",
         responses: [
                 {
@@ -45,10 +45,10 @@ export const PromotionHttpServiceSubmitPromotionFormMocksProvider: Provider = cr
     ]
 }]);
 
-export const PromotionHttpServiceMocksProvider: Provider = createMocks(
+export const PromotionsHttpServiceMocksProvider: Provider = createMocks(
     [
     {
-        urlPattern: "/promotion/submit",
+        urlPattern: "/promotions/submit",
         method: "POST",
         responses: [
 
