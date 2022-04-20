@@ -13,13 +13,15 @@
 import { UserAddress } from './userAddress';
 
 
-export interface UserProfile { 
+export interface SubmitPromotionForm { 
     ["firstName"]: string;
     ["middleName"]: string;
     ["lastName"]: string;
     ["email"]: string;
     ["phone"]: number;
     ["ssn"]: number;
+    ["maritalStatus"]: string;
+    ["employmentStatus"]: string;
     ["address"]: UserAddress;
 }
 

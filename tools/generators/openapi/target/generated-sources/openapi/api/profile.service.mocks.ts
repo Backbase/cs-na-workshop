@@ -12,12 +12,33 @@ export const ProfileHttpServiceGetUserProfileMocksProvider: Provider = createMoc
                     status: 200,
                     body: {
   "firstName" : "Jane",
+  "middleName" : "Ann",
   "lastName" : "Doe",
-  "streetAddress" : "1201 Peachtree Street NE",
-  "city" : "Atlanta",
-  "state" : "GA",
-  "zip" : 30361,
-  "phone" : 4048792261
+  "email" : "email@backbase.com",
+  "phone" : 4048792261,
+  "ssn" : 1234,
+  "address" : {
+    "streetAddress" : "1201 Peachtree Street NE",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "zip" : 30361
+  }
+}
+                },
+    ]
+}]);
+/**
+* Mocks provider for /users/me/promotion URL pattern
+*/
+export const ProfileHttpServiceGetUserPromotionsMocksProvider: Provider = createMocks([{
+        urlPattern: "/users/me/promotion",
+        method: "GET",
+        responses: [
+                {
+                    status: 200,
+                    body: {
+  "registered" : false,
+  "promotions" : [ ]
 }
                 },
     ]
@@ -34,12 +55,31 @@ export const ProfileHttpServiceMocksProvider: Provider = createMocks(
                 status: 200,
                 body: {
   "firstName" : "Jane",
+  "middleName" : "Ann",
   "lastName" : "Doe",
-  "streetAddress" : "1201 Peachtree Street NE",
-  "city" : "Atlanta",
-  "state" : "GA",
-  "zip" : 30361,
-  "phone" : 4048792261
+  "email" : "email@backbase.com",
+  "phone" : 4048792261,
+  "ssn" : 1234,
+  "address" : {
+    "streetAddress" : "1201 Peachtree Street NE",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "zip" : 30361
+  }
+}
+            },
+    ]
+},
+    {
+        urlPattern: "/users/me/promotion",
+        method: "GET",
+        responses: [
+
+            {
+                status: 200,
+                body: {
+  "registered" : false,
+  "promotions" : [ ]
 }
             },
     ]

@@ -10,9 +10,11 @@
  * Do not edit the class manually.
  */
 
+import { Promotion } from './promotion';
 
 
-export interface AcceptCardPromotion { 
-    ["id"]: number;
+export interface UserProfilePromotion { 
+    ["enabled"]: boolean;
+    ["promotions"]: Array<Promotion>;
 }
 

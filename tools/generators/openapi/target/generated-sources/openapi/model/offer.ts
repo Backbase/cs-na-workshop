@@ -10,16 +10,10 @@
  * Do not edit the class manually.
  */
 
-import { UserAddress } from './userAddress';
 
 
-export interface UserProfile { 
-    ["firstName"]: string;
-    ["middleName"]: string;
-    ["lastName"]: string;
-    ["email"]: string;
-    ["phone"]: number;
-    ["ssn"]: number;
-    ["address"]: UserAddress;
+export interface Offer { 
+    ["amount"]: number;
+    ["text"]: string;
 }
 

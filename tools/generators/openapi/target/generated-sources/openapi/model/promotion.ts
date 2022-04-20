@@ -10,13 +10,15 @@
  * Do not edit the class manually.
  */
 
+import { Offer } from './offer';
 
 
-export interface CardPromotion { 
+export interface Promotion { 
     ["id"]: number;
-    ["name"]: string;
     ["heading"]: string;
-    ["description"]: string;
+    ["subheading"]?: string;
     ["image"]?: string;
+    ["offer"]: Offer;
+    ["description"]?: string;
 }
 
