@@ -108,9 +108,7 @@ const dataModulePaths: [InjectionToken<string>, string][] = [
  * ```
  */
 @NgModule({
-  imports: [
-    NgrxPromotionsApiModule.forRoot(apiConfigFactory)
-  ],
+  imports: [NgrxPromotionsApiModule.forRoot(apiConfigFactory)],
   providers: [
     ...dataModulePaths.map(([token, servicePath]) => ({
       provide: token,
