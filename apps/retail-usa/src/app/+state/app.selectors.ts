@@ -1,5 +1,5 @@
 import { USER_FEATURE_KEY } from '@backbase/marketing-journey';
-import { Promotion } from '@backbase/user-marketing-promotions-data';
+import { Promotion } from '@backbase/retail/util/promotions';
 import { createSelector } from '@ngrx/store';
 import { AppState } from './app.state';
 

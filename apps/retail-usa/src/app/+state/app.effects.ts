@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Promotion, ProfileHttpService } from '@backbase/user-marketing-promotions-data';
+import { Promotion, ProfileHttpService } from '@backbase/retail/util/promotions';
 import { concatMap, map } from 'rxjs/operators';
 import * as AppActions from './app.actions';
 

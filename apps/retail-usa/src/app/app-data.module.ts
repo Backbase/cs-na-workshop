@@ -30,7 +30,7 @@ import { PLACES_BASE_PATH } from '@backbase/data-ang/places';
 import { SAVING_GOALS_BASE_PATH } from '@backbase/data-ang/saving-goals';
 import { STOP_CHECKS_BASE_PATH } from '@backbase/data-ang/stop-checks';
 import { TRANSACTIONS_BASE_PATH } from '@backbase/data-ang/transactions';
-import { NGRX_PROMOTIONS_BASE_PATH } from '@backbase/user-marketing-promotions-data'
+import { NGRX_PROMOTIONS_BASE_PATH } from '@backbase/retail/util/promotions'
 import { USER_BASE_PATH } from '@backbase/data-ang/user';
 import { environment } from '../environments/environment';
 

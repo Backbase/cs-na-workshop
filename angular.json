@@ -12,7 +12,6 @@
     "shared-app-core": "libs/shared/util/app-core",
     "shared-auth": "libs/shared/feature/auth",
     "shared-routable-modal": "libs/shared/feature/routable-modal",
-    "shared-user-context": "libs/shared/feature/user-context",
-    "user-marketing-promotions-data": "libs/user-marketing-promotions-data"
+    "shared-user-context": "libs/shared/feature/user-context"
   }
 }
