@@ -1,0 +1,24 @@
+<div class="card promotion-card" *ngIf="item">
+  <div class="card-header d-flex flex-column text-center pt-4">
+    <bb-header-ui headingType="h2" [heading]="item.heading"></bb-header-ui>
+    <bb-header-ui headingType="h3" headingClasses="font-weight-normal" [heading]="item.name"></bb-header-ui>
+  </div>
+  <div class="d-flex flex-column card-body align-items-center text-center">
+    <bb-payment-card-ui [paymentCard]="promoCard"></bb-payment-card-ui>
+    <div class="d-flex align-items-center mt-3">
+      <span class="promotion-card__price mr-2">{{ item.fee }}</span>
+      <h3 class="promotion-card__offer font-weight-normal mb-0">Monthly Service Fee</h3>
+    </div>
+  </div>
+  <div class="card-footer pb-4">
+    <div class="d-flex flex-column justify-content-center text-center">
+      <h5 class="font-weight-normal mb-3" *ngIf="item.description">
+        {{ item.description }}
+      </h5>
+
+      <button bbButton type="button" color="secondary" data-role="apply-button" (click)="select.emit(item)">
+        Apply now
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,13 @@
-<p>promotions-view works!</p>
+<button bbButton type="button" color="secondary" data-role="back-button" (click)="goBack()">
+  <i aria-hidden="true" class="bb-icon bb-icon-arrow-back"></i>
+  <span>Back</span>
+</button>
+
+<div class="row mt-3">
+  <ng-container *ngIf="promotions$ | async as promotions">
+    <div *ngFor="let promotion of promotions" class="col-sm-12 col-md-6 col-lg-4 mb-4">
+      <promotion-card [item]="promotion" (select)="onPromotionSelect($event)"></promotion-card>
+    </div>
+    <p *ngIf="!promotions.length">Currently we don't have promotions.</p>
+  </ng-container>
+</div>
