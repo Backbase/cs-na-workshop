@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { UserAddress } from './userAddress';
+import { UserProfileAddress } from './userProfileAddress';
 
 
 export interface UserProfile { 
@@ -20,6 +20,6 @@ export interface UserProfile {
     ["email"]: string;
     ["phone"]: number;
     ["ssn"]: number;
-    ["address"]: UserAddress;
+    ["address"]: UserProfileAddress;
 }
 
