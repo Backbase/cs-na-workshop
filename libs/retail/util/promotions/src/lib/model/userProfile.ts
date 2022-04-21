@@ -20,4 +20,6 @@ export interface UserProfile {
   ['phoneNumber']?: number;
   ['ssn']: number;
   ['address']: UserProfileAddress;
+  ['employmentStatus']?: string;
+  ['maritalStatus']?: string;
 }

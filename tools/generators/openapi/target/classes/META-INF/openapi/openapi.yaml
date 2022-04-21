@@ -26,7 +26,14 @@ paths:
                       'phoneNumber': 4048792261,
                       'ssn': 1234,
                       'address':
-                        { 'line1': '1201 Peachtree Street NE', 'city': 'Atlanta', 'state': 'GA', 'zipCode': 30361 },
+                        {
+                          'line1': '1201 Peachtree Street NE',
+                          'city': 'Atlanta',
+                          'state': 'Georgia',
+                          'zipCode': 30361,
+                        },
+                      'employmentStatus': 'Full-Time',
+                      'maritalStatus': 'Married',
                     }
               schema:
                 $ref: '#/components/schemas/UserProfile'
@@ -124,6 +131,10 @@ components:
           type: number
         address:
           $ref: '#/components/schemas/UserProfileAddress'
+        employmentStatus:
+          type: string
+        maritalStatus:
+          type: string
     UserProfileAddress:
       type: object
       required:
