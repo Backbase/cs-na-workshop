@@ -21,6 +21,7 @@
       "@backbase/retail/data-access-mocks": ["libs/retail/data-access-mocks/src/index.ts"],
       "@backbase/retail/feature/communication": ["libs/retail/feature/communication/src/index.ts"],
       "@backbase/retail/feature/layout": ["libs/retail/feature/layout/src/index.ts"],
+      "@backbase/retail/util/promotions": ["libs/retail/util/promotions/src/index.ts"],
       "@backbase/shared/feature/auth": ["libs/shared/feature/auth/src/index.ts"],
       "@backbase/shared/feature/routable-modal": ["libs/shared/feature/routable-modal/src/index.ts"],
       "@backbase/shared/feature/user-context": ["libs/shared/feature/user-context/src/index.ts"],

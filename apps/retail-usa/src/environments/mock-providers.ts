@@ -89,6 +89,7 @@ import { createMocks, createMocksInterceptor } from '@backbase/foundation-ang/da
 import { NotificationsMocksProvider } from '@backbase/notifications-mocks-provider-ang';
 import { SummaryMockInterceptor } from '@backbase/retail/data-access-mocks';
 import { productSummaryContextArrangementsMocks, promotionsMock, userMock } from './mock-data';
+import { ProfileHttpServiceMocksProvider, PromotionsHttpServiceMocksProvider } from '@backbase/retail/util/promotions';
 
 const SubmitCardPromotionMockProvider = createMocks([
   {
@@ -116,18 +117,18 @@ const AcceptCardPromotionMockProvider = createMocks([
   },
 ]);
 
-export const ProfileHttpServiceMocksProvider: Provider = createMocks([
-  {
-    urlPattern: '/users/me/profile',
-    method: 'GET',
-    responses: [
-      {
-        status: 200,
-        body: userMock,
-      },
-    ],
-  },
-]);
+//export const ProfileHttpServiceMocksProvider: Provider = createMocks([
+//  {
+//    urlPattern: '/users/me/profile',
+//    method: 'GET',
+//    responses: [
+//      {
+//        status: 200,
+//        body: userMock,
+//      },
+//    ],
+//  },
+//]);
 
 const ProductSummaryContextArrangementsMockProvider = createMocks([
   {
@@ -218,5 +219,6 @@ export const mockProviders: Provider[] = [
   SelectCampaignServiceSelectCampaignMocksProvider,
   SubmitCardPromotionMockProvider,
   AcceptCardPromotionMockProvider,
-  ProfileHttpServiceMocksProvider,
+  //ProfileHttpServiceMocksProvider,
+  ProfileHttpServiceMocksProvider, PromotionsHttpServiceMocksProvider,
 ];
