@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
-import { concatMap } from 'rxjs/operators';
+import { concatMap, map } from 'rxjs/operators';
 import { MockHttpService } from '../../services/mocks.service';
 
 import * as UserActions from './user.actions';
@@ -11,12 +11,13 @@ export class UserEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserActions.init),
-      concatMap((action) => this.mockHttpService.getUserProfile()),
       fetch({
         run: (user) => {
-          return UserActions.loadUserSuccess({ user: [user] });
+          return this.mockHttpService
+            .getUserProfile()
+            .pipe(map((user) => UserActions.loadUserSuccess({ user: [user] })));
         },
-        onError: (error) => {
+        onError: (action, error) => {
           console.error('Error', error);
           return UserActions.loadUserFailure({ error });
         },

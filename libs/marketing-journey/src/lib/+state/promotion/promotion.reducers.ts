@@ -21,9 +21,11 @@ export const initialPromotionsState = promotionAdapter.getInitialState({
 export const promotionReducer = createReducer(
   initialPromotionsState,
 
-  on(PromotionActions.allPromotionsLoaded, (state, action) =>
+  on(PromotionActions.loadPromotionsSuccess, (state, action) =>
     promotionAdapter.setAll(action.promotions, { ...state, allPromotionsLoaded: true }),
   ),
+
+  on(PromotionActions.loadPromotionsFailure, (state, { error }) => ({ ...state, error })),
 );
 
 export const { selectAll } = promotionAdapter.getSelectors();

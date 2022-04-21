@@ -1,9 +1,12 @@
 import { createAction, props } from '@ngrx/store';
+import { UserEntity } from '../user/user.models';
 import { PromotionEntity } from './promotion.models';
 
-export const loadAllPromotions = createAction('[Promotions Resolver] Load All Promotions');
+export const loadAllPromotions = createAction('[Promotions Page] Load All Promotions', props<{ user: any[] }>());
 
-export const allPromotionsLoaded = createAction(
-  '[Load Promotions Effect] All Promotions Loaded',
+export const loadPromotionsSuccess = createAction(
+  '[Promotions/API] Load Promotions Success',
   props<{ promotions: PromotionEntity[] }>(),
 );
+
+export const loadPromotionsFailure = createAction('[Promotions/API] Load Promotions Failure', props<{ error: any }>());
