@@ -66,8 +66,9 @@ export class UserFormViewComponent implements OnInit {
     this.authorizedUsers.push(userForm);
   }
   onSubmit() {
+    const user = this.formGroup.value;
     // Store user form data
-    this.store.dispatch(UserActions.loadUserSuccess({ user: [this.formGroup.value] }));
+    this.store.dispatch(UserActions.loadUserSuccess({ user: [user] }));
 
     // Get list of promotions
     this.store
@@ -76,7 +77,7 @@ export class UserFormViewComponent implements OnInit {
         tap((promotionsLoaded) => {
           if (!this.loadingPromotions$.value && !promotionsLoaded) {
             this.loadingPromotions$.next(true);
-            this.store.dispatch(PromotionActions.loadAllPromotions());
+            this.store.dispatch(PromotionActions.loadAllPromotions({ user }));
           }
         }),
         filter((promotionsLoaded) => promotionsLoaded),

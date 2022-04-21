@@ -10,14 +10,14 @@ export class MockHttpService {
   constructor(private http: HttpClient) {}
 
   submitPromotionForm(user: any): Observable<any> {
-    return this.http.post('/promotions/submit', user).pipe(map((res: any) => res));
+    return this.http.post('/promotions/submit', user);
   }
 
   getUserProfile(): Observable<any> {
-    return this.http.get('/users/me/profile').pipe(map((res: any) => res));
+    return this.http.get('/users/me/profile');
   }
 
   getUserPromotions(): Observable<any> {
-    return this.http.get('/users/me/promotion').pipe(map((res: any) => res));
+    return this.http.get('/users/me/promotion');
   }
 }
