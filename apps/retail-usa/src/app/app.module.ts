@@ -2,9 +2,6 @@ import { HTTP_INTERCEPTORS, HttpClientModule, HttpClientXsrfModule } from '@angu
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreModule } from '@ngrx/store';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TemplateRegistry } from '@backbase/foundation-ang/core';
 import { TransactionSigningModule } from '@backbase/identity-auth/transaction-signing';
 import { IdentityAuthModule } from '@backbase/identity-auth';
@@ -27,13 +24,6 @@ export function applicationInitializer(remoteConfig: RemoteConfigService<RetailA
     HttpClientXsrfModule,
     TransactionSigningModule,
     IdentityAuthModule,
-    
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({
-          maxAge: 25,
-          logOnly: environment.production
-        }),
     environment.animation ? BrowserAnimationsModule : NoopAnimationsModule,
     ...appModuleImports,
   ],

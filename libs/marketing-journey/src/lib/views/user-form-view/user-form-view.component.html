@@ -1,7 +1,7 @@
 <form class="card" [formGroup]="formGroup">
-  <div class="card-header d-flex">
+  <div class="card-header d-flex justify-content-between">
     <h1>User form</h1>
-    <button bbButton color="link">
+    <button (click)="syncProfile()" bbButton color="link">
       <bb-icon-ui name="autorenew"></bb-icon-ui>
       Sync Profile Data
     </button>
@@ -145,13 +145,21 @@
     <div class="row">
       <div class="form-group col-12">
         <bb-input-checkbox-ui
-        label="I agree with the Terms & Conditions"
-        formControlName="agreement"
-      ></bb-input-checkbox-ui>
+          label="I agree with the Terms & Conditions"
+          formControlName="agreement"
+        ></bb-input-checkbox-ui>
       </div>
     </div>
   </div>
   <div class="card-footer bb-button-bar bb-block bb-block-md">
-    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Next</button>
+    <bb-load-button-ui
+      color="primary"
+      type="submit"
+      [isLoading]="loadingPromotions$ | async"
+      buttonSize="md"
+      (click)="onSubmit()"
+    >
+      Next
+    </bb-load-button-ui>
   </div>
 </form>
