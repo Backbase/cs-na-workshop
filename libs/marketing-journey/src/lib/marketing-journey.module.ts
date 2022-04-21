@@ -2,18 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  NgrxPromotionsApiModule,
-  NgrxPromotionsConfiguration,
-  NgrxPromotionsConfigurationParameters,
-} from '@backbase/retail/util/promotions';
-
-export const apiConfigFactory = function (): NgrxPromotionsConfiguration {
-  const params: NgrxPromotionsConfigurationParameters = {
-    // set configuration parameters here: check the NgrxPromotionsConfigurationParameters type for options
-  };
-  return new NgrxPromotionsConfiguration(params);
-};
 
 import {
   InputTextModule,
@@ -77,7 +65,6 @@ const uiModules = [ButtonModule, HeaderModule, PaymentCardModule];
     EffectsModule.forFeature([UserEffects]),
     StoreModule.forFeature(fromPromotion.PROMOTION_FEATURE_KEY, fromPromotion.promotionReducer),
     EffectsModule.forFeature([PromotionsEffects]),
-    NgrxPromotionsApiModule.forRoot(apiConfigFactory),
     ...uiModules,
   ],
   declarations: [
