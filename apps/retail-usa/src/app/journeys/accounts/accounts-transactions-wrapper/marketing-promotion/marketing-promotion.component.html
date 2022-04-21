@@ -1,0 +1,7 @@
+<ng-container *ngIf="promotions$ | async as promotions; else defaultPromo">
+    <!-- TODO: Add promotion template -->
+</ng-container>
+
+<ng-template #defaultPromo>
+    <a routerLink="/marketing"><img width="315" src="/assets/great-promos.png"/></a>
+</ng-template>

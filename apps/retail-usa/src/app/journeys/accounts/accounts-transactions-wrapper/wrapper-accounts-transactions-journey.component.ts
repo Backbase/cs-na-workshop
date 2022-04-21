@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { UserState } from '@backbase/marketing-journey';
 import { QuickActionLink } from '../quick-actions.component';
 
 @Component({
@@ -13,7 +11,7 @@ import { QuickActionLink } from '../quick-actions.component';
         </div>
         <div class="col-md-4 pt-5">
           <div class="mb-4 mt-5">
-            <a routerLink="/marketing"><img width="315" src="/assets/great-promos.png" /></a>
+              <bb-marketing-promotion></bb-marketing-promotion>
           </div>
           <div class="mb-4 mt-5">
             <bb-campaign-space-ang name="bb-campaign-space-ang-0"></bb-campaign-space-ang>
@@ -62,8 +60,4 @@ export class AccountsTransactionsJourneyWrapperComponent {
       url: '/more/find-us',
     },
   ];
-
-  constructor(private store: Store<UserState>) {
-    // TODO: Implement getUserPromotions
-  }
 }

@@ -39,10 +39,7 @@ export const ProfileHttpServiceGetUserPromotionsMocksProvider: Provider = create
     responses: [
       {
         status: 200,
-        body: {
-          registered: false,
-          promotions: [],
-        },
+        body: [],
       },
     ],
   },
@@ -78,10 +75,7 @@ export const ProfileHttpServiceMocksProvider: Provider = createMocks([
     responses: [
       {
         status: 200,
-        body: {
-          registered: false,
-          promotions: [],
-        },
+        body: [],
       },
     ],
   },
