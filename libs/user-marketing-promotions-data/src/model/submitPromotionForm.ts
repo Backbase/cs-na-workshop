@@ -10,16 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { UserAddress } from './userAddress';
+import { UserProfileAddress } from './userProfileAddress';
 
 
-export interface UserProfile { 
+export interface SubmitPromotionForm { 
     ["firstName"]: string;
     ["middleName"]: string;
     ["lastName"]: string;
     ["email"]: string;
     ["phone"]: number;
     ["ssn"]: number;
-    ["address"]: UserAddress;
+    ["maritalStatus"]: string;
+    ["employmentStatus"]: string;
+    ["address"]: UserProfileAddress;
 }
 
