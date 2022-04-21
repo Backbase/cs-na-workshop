@@ -1,1 +1,1 @@
-export * from './lib/retail-util-promotions.module';
+export * from './lib/api.module';
