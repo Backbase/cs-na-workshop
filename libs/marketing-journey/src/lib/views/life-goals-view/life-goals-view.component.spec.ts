@@ -8,9 +8,8 @@ describe('LifeGoalsViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LifeGoalsViewComponent ]
-    })
-    .compileComponents();
+      declarations: [LifeGoalsViewComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

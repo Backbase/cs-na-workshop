@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 
-
 @Component({
   selector: 'bb-input-authorized-users',
   templateUrl: './input-authorized-users.component.html',

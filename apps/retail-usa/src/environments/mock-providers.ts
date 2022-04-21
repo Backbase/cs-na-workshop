@@ -220,5 +220,6 @@ export const mockProviders: Provider[] = [
   SubmitCardPromotionMockProvider,
   AcceptCardPromotionMockProvider,
   //ProfileHttpServiceMocksProvider,
-  ProfileHttpServiceMocksProvider, PromotionsHttpServiceMocksProvider,
+  ProfileHttpServiceMocksProvider,
+  PromotionsHttpServiceMocksProvider,
 ];

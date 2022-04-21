@@ -8,9 +8,8 @@ describe('InputAuthorizedUsersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputAuthorizedUsersComponent ]
-    })
-    .compileComponents();
+      declarations: [InputAuthorizedUsersComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
