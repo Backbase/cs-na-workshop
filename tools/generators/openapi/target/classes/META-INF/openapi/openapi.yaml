@@ -140,7 +140,7 @@ components:
         ssn:
           type: number
         address:
-          $ref: '#/components/schemas/UserAddress'
+          $ref: '#/components/schemas/UserProfileAddress'
     UserProfileAddress:
       type: object
       required:
@@ -199,7 +199,7 @@ components:
         employmentStatus:
           type: string
         address:
-          $ref: '#/components/schemas/UserAddress'
+          $ref: '#/components/schemas/UserProfileAddress'
     Offer:
       type: object
       required:

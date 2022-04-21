@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/retail/util/promotions",
+  "sourceRoot": "libs/retail/util/promotions/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/retail/util/promotions/src/test.ts",
+        "tsConfig": "libs/retail/util/promotions/tsconfig.spec.json",
+        "karmaConfig": "libs/retail/util/promotions/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/retail/util/promotions/src/**/*.ts", "libs/retail/util/promotions/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

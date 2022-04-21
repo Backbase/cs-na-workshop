@@ -8,6 +8,7 @@
     "retail-mocks": "libs/retail/data-access-mocks",
     "retail-usa": "apps/retail-usa",
     "retail-usa-e2e": "apps/retail-usa-e2e",
+    "retail-util-promotions": "libs/retail/util/promotions",
     "shared-app-core": "libs/shared/util/app-core",
     "shared-auth": "libs/shared/feature/auth",
     "shared-routable-modal": "libs/shared/feature/routable-modal",
