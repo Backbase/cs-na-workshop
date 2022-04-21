@@ -18,6 +18,8 @@ import { LayoutModule } from './layout/layout.module';
 import { remoteConfigDefaults } from './remote-config/remote-config';
 import { RoutableModalModule } from './routable-modal/routable-modal.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AppEffects } from './+state/app.effects';
+import { appReducer } from './+state/app.reducers';
 
 /**
  * Modules in this array are added to the `imports` array of the AppModule
@@ -29,9 +31,9 @@ export const appModuleImports = [
   LayoutModule,
   AppDataModule,
   AppRoutingModule,
-  StoreModule.forRoot({}),
+  StoreModule.forRoot(appReducer),
   StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-  EffectsModule.forRoot([]),
+  EffectsModule.forRoot([AppEffects]),
   RemoteConfigModule.forRoot({
     appName: 'bb-retail-app-ang',
     appVersion: '2021.10-beta',

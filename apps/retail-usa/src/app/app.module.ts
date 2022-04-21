@@ -11,6 +11,8 @@ import { environment } from '../environments/environment';
 import { appModuleImports } from './app-module-imports';
 import { AppComponent } from './app.component';
 import { RetailAppRemoteConfig } from './remote-config/remote-config';
+import { appReducer } from './+state/app.reducers';
+import { AppEffects } from './+state/app.effects';
 
 export function applicationInitializer(remoteConfig: RemoteConfigService<RetailAppRemoteConfig>) {
   return () => remoteConfig.fetchAndActivate();
