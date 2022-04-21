@@ -17,7 +17,7 @@ export interface UserProfile {
   ['middleName']: string;
   ['lastName']: string;
   ['email']: string;
-  ['phone']: number;
+  ['phoneNumber']?: number;
   ['ssn']: number;
   ['address']: UserProfileAddress;
 }

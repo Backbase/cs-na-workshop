@@ -26,7 +26,6 @@ export class UserFormViewComponent implements OnInit {
     lastName: '',
     email: '',
     phoneNumber: '',
-    dob: null,
     address: this.fb.group({
       line1: '',
       line2: '',

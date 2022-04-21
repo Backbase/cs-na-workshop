@@ -11,9 +11,9 @@
  */
 
 export interface UserProfileAddress {
-  ['addressStreet']: string;
-  ['buildingLot']?: string;
+  ['line1']?: string;
+  ['line2']?: string;
   ['city']: string;
   ['state']: string;
-  ['zip']: number;
+  ['zipCode']?: number;
 }
