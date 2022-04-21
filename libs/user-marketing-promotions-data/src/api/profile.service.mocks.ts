@@ -77,10 +77,7 @@ export const ProfileHttpServiceMocksProvider: Provider = createMocks(
 
             {
                 status: 200,
-                body: {
-  "registered" : false,
-  "promotions" : [ ]
-}
+                body: []
             },
     ]
 },
