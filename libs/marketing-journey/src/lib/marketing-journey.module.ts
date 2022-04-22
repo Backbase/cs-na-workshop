@@ -31,6 +31,9 @@ import { PromotionsEffects } from './+state/promotion/promotion.effects';
 import { MockHttpService } from './services/mocks.service';
 import { PromotionCardComponent } from './components/promotion-card/promotion-card.component';
 
+import * as fromForm from './+state/form/form.reducer';
+import { FormEffects } from './+state/form/form.effects';
+
 const routes = [
   { path: '', redirectTo: 'info', pathMatch: 'full' },
   {
@@ -65,6 +68,8 @@ const uiModules = [ButtonModule, HeaderModule, PaymentCardModule];
     EffectsModule.forFeature([UserEffects]),
     StoreModule.forFeature(fromPromotion.PROMOTION_FEATURE_KEY, fromPromotion.promotionReducer),
     EffectsModule.forFeature([PromotionsEffects]),
+    StoreModule.forFeature(fromForm.FORM_FEATURE_KEY, fromForm.reducer),
+    EffectsModule.forFeature([FormEffects]),
     ...uiModules,
   ],
   declarations: [
