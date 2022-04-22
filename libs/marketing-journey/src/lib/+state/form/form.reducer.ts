@@ -5,11 +5,14 @@ import { UserProfile } from '@backbase/retail/util/promotions';
 export const FORM_FEATURE_KEY = 'userform';
 
 export interface State {
-  formData?: UserProfile;
-  profile?: any;
+  loaded: boolean;
+  formData?: any;
+  profile?: UserProfile;
 }
 
-export const initialState: State = {};
+export const initialState: State = {
+  loaded: false,
+};
 
 export const reducer = createReducer(
   initialState,
@@ -17,5 +20,6 @@ export const reducer = createReducer(
     ...state,
     formData,
   })),
-  on(FormActions.loadUserProfileSuccess, (state, { profile }) => ({ ...state, profile })),
+  on(FormActions.loadUserProfileSuccess, (state, { profile }) => ({ ...state, profile, loaded: true })),
+  on(FormActions.loadUserProfileFailure, (state, { error }) => ({ ...state, error })),
 );

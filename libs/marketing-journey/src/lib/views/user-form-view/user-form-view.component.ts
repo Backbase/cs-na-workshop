@@ -3,12 +3,12 @@ import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { BehaviorSubject } from 'rxjs';
-import { filter, first, take, tap, takeUntil } from 'rxjs/operators';
+import { filter, first, take, tap, takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { AppState } from 'apps/retail-usa/src/app/+state/app.state';
-import { getUser, isUserLoaded } from '../../+state/user/user.selectors';
 import { arePromotionsLoaded } from '../../+state/promotion/promotion.selectors';
 import * as PromotionActions from '../../+state/promotion/promotion.actions';
-import * as UserActions from '../../+state/user/user.actions';
+import { getFormData, getUserProfile } from '../../+state/form/form.selectors';
+import * as FormActions from '../../+state/form/form.actions';
 import { EMPLOYMENT_STATUS, MARITAL_STATUS, STATES } from './const';
 import { Subject } from 'rxjs';
 
@@ -66,10 +66,9 @@ export class UserFormViewComponent implements OnInit, OnDestroy {
 
     this.authorizedUsers.push(userForm);
   }
+
   onSubmit() {
     const user = this.formGroup.value;
-    // Store user form data
-    this.store.dispatch(UserActions.loadUserSuccess({ user: [user] }));
 
     // Get list of promotions
     this.store
@@ -91,31 +90,29 @@ export class UserFormViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Get user profile data
-    this.store
-      .pipe(
-        select(isUserLoaded),
-        tap((userLoaded) => {
-          if (!this.loadingUser$.value && !userLoaded) {
-            this.loadingUser$.next(true);
-            this.store.dispatch(UserActions.init());
-          }
-        }),
-        filter((userLoaded) => userLoaded),
-        first(),
-      )
-      .subscribe(() => {
-        this.loadingUser$.next(false);
-      });
+    this.store.pipe(select(getFormData), take(1)).subscribe((formData) => {
+      this.formGroup.patchValue(formData);
+    });
+
+    this.formGroup.valueChanges.pipe(takeUntil(this.destroy$), debounceTime(500)).subscribe((formData) => {
+      this.store.dispatch(FormActions.setFormData({ formData }));
+    });
   }
 
   syncProfile(): void {
-    // Get user profile data from store
-    this.store.pipe(select(getUser), take(1)).subscribe((user) => {
-      this.formGroup.patchValue(user[0]);
-    });
+    this.store.dispatch(FormActions.getUserProfile());
 
-    this.formGroup.valueChanges.pipe(takeUntil(this.destroy$));
+    //    Get user profile data or
+    //    Get user profile data from store
+    this.store
+      .pipe(
+        select(getUserProfile),
+        filter((data) => data !== undefined),
+        take(1),
+      )
+      .subscribe((userProfile) => {
+        this.formGroup.patchValue(userProfile);
+      });
   }
 
   ngOnDestroy() {
