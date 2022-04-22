@@ -20,6 +20,8 @@ export const reducer = createReducer(
     ...state,
     formData,
   })),
-  on(FormActions.loadUserProfileSuccess, (state, { profile }) => ({ ...state, profile, loaded: true })),
+  on(FormActions.loadUserProfileSuccess, (state, { profile }) => {
+    return { ...state, profile, loaded: true };
+  }),
   on(FormActions.loadUserProfileFailure, (state, { error }) => ({ ...state, error })),
 );

@@ -7,3 +7,5 @@ export const getFormState = createFeatureSelector<State>(FORM_FEATURE_KEY);
 export const getFormData = createSelector(getFormState, (state: State) => state.formData);
 
 export const getUserProfile = createSelector(getFormState, (state: State) => state.profile);
+
+export const isUserProfileLoaded = createSelector(getFormState, (state: State) => state.loaded);

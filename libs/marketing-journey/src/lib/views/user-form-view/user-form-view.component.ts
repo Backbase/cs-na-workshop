@@ -97,22 +97,20 @@ export class UserFormViewComponent implements OnInit, OnDestroy {
     this.formGroup.valueChanges.pipe(takeUntil(this.destroy$), debounceTime(500)).subscribe((formData) => {
       this.store.dispatch(FormActions.setFormData({ formData }));
     });
-  }
 
-  syncProfile(): void {
-    this.store.dispatch(FormActions.getUserProfile());
-
-    //    Get user profile data or
-    //    Get user profile data from store
     this.store
       .pipe(
+        takeUntil(this.destroy$),
         select(getUserProfile),
         filter((data) => data !== undefined),
-        take(1),
       )
       .subscribe((userProfile) => {
         this.formGroup.patchValue(userProfile);
       });
+  }
+
+  syncProfile(): void {
+    this.store.dispatch(FormActions.getUserProfile());
   }
 
   ngOnDestroy() {
