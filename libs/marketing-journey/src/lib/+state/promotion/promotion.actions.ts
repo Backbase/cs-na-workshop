@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { UserEntity } from '../user/user.models';
 import { PromotionEntity } from './promotion.models';
 
 export const loadAllPromotions = createAction('[Promotions Page] Load All Promotions', props<{ user: any[] }>());

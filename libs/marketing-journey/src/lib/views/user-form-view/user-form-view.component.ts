@@ -1,76 +1,45 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ConstComponent } from './const.component';
+
+// STORE.APP
 import { select, Store } from '@ngrx/store';
-import { BehaviorSubject } from 'rxjs';
-import { filter, first, take, tap, takeUntil } from 'rxjs/operators';
 import { AppState } from 'apps/retail-usa/src/app/+state/app.state';
-import { getUser, isUserLoaded } from '../../+state/user/user.selectors';
+
+// STORE.FORM
+import { getFormData, getUserProfile } from '../../+state/form/form.selectors';
+import * as FormActions from '../../+state/form/form.actions';
+
+// STORE.PROMOTIONS
 import { arePromotionsLoaded } from '../../+state/promotion/promotion.selectors';
 import * as PromotionActions from '../../+state/promotion/promotion.actions';
-import * as UserActions from '../../+state/user/user.actions';
-import { EMPLOYMENT_STATUS, MARITAL_STATUS, STATES } from './const';
-import { Subject } from 'rxjs';
+
+// RXJS
+import { BehaviorSubject } from 'rxjs';
+import { filter, first, take, tap, takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'bb-user-form-view',
   templateUrl: './user-form-view.component.html',
   styleUrls: ['./user-form-view.component.scss'],
 })
-export class UserFormViewComponent implements OnInit, OnDestroy {
-  readonly states = STATES;
-  readonly martialStatus = MARITAL_STATUS;
-  readonly employmentStatus = EMPLOYMENT_STATUS;
-  destroy$: Subject<boolean> = new Subject<boolean>();
-  formGroup = this.fb.group({
-    firstName: '',
-    middleName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
-    dob: null,
-    address: this.fb.group({
-      line1: '',
-      line2: '',
-      city: '',
-      state: '',
-      zipCode: '',
-    }),
-    income: '',
-    employmentStatus: '',
-    maritalStatus: '',
-    ssn: '',
-    authorizedUsers: this.fb.array([]),
-    agreement: [false, Validators.requiredTrue],
-  });
-
+export class UserFormViewComponent extends ConstComponent implements OnInit {
   /**
    * Streams of loading flag indicators.
    */
   readonly loadingPromotions$: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  readonly loadingUser$: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  get authorizedUsers(): FormArray {
-    return this.formGroup.get('authorizedUsers') as FormArray;
+  constructor(protected fb: FormBuilder, private router: Router, private store: Store<AppState>) {
+    super(fb);
   }
 
-  constructor(private fb: FormBuilder, private router: Router, private store: Store<AppState>) {}
-
-  addUser() {
-    const userForm = this.fb.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      confirm: '',
-    });
-
-    this.authorizedUsers.push(userForm);
-  }
+  /**
+   * Submit the user form to retrieve valid promotions
+   * @returns {void}
+   */
   onSubmit() {
     const user = this.formGroup.value;
-    // Store user form data
-    this.store.dispatch(UserActions.loadUserSuccess({ user: [user] }));
 
     // Get list of promotions
     this.store
@@ -92,37 +61,39 @@ export class UserFormViewComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Get user profile data
+    /**
+     * Prefill form data when loading the instance
+     */
+    this.store.pipe(select(getFormData), take(1)).subscribe((formData) => {
+      this.formGroup.patchValue(formData);
+    });
+
+    /**
+     * Save form data to store after 0.5sec of inactivity
+     */
+    this.formGroup.valueChanges.pipe(takeUntil(this.destroy$), debounceTime(500)).subscribe((formData) => {
+      this.store.dispatch(FormActions.setFormData({ formData }));
+    });
+
+    /**
+     * When syncing user profile data, overwrite form data
+     */
     this.store
       .pipe(
-        select(isUserLoaded),
-        tap((userLoaded) => {
-          if (!this.loadingUser$.value && !userLoaded) {
-            this.loadingUser$.next(true);
-            this.store.dispatch(UserActions.init());
-          }
-        }),
-        filter((userLoaded) => userLoaded),
-        first(),
+        takeUntil(this.destroy$),
+        select(getUserProfile),
+        filter((data) => data !== undefined),
       )
-      .subscribe(() => {
-        this.loadingUser$.next(false);
+      .subscribe((userProfile) => {
+        this.formGroup.patchValue(userProfile);
       });
   }
 
+  /**
+   * Request user profile data to overwrite form data
+   * @returns {void}
+   */
   syncProfile(): void {
-    // Get user profile data from store
-    this.store
-      .pipe(select(getUser),take(1))
-      .subscribe((user) => {
-        this.formGroup.patchValue(user[0]);
-      });
-
-    this.formGroup.valueChanges.pipe(takeUntil(this.destroy$))
-  }
-
-  ngOnDestroy() {
-    this.destroy$.next(true);
-    this.destroy$.unsubscribe();
+    this.store.dispatch(FormActions.getUserProfile());
   }
 }

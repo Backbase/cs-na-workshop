@@ -17,7 +17,7 @@ export interface SubmitPromotionForm {
   ['middleName']: string;
   ['lastName']: string;
   ['email']: string;
-  ['phone']: number;
+  ['phoneNumber']?: number;
   ['ssn']: number;
   ['maritalStatus']: string;
   ['employmentStatus']: string;

@@ -30,9 +30,23 @@ import { PLACES_BASE_PATH } from '@backbase/data-ang/places';
 import { SAVING_GOALS_BASE_PATH } from '@backbase/data-ang/saving-goals';
 import { STOP_CHECKS_BASE_PATH } from '@backbase/data-ang/stop-checks';
 import { TRANSACTIONS_BASE_PATH } from '@backbase/data-ang/transactions';
-import { NGRX_PROMOTIONS_BASE_PATH } from '@backbase/retail/util/promotions'
+import { NGRX_PROMOTIONS_BASE_PATH } from '@backbase/retail/util/promotions';
 import { USER_BASE_PATH } from '@backbase/data-ang/user';
+
+import {
+  NgrxPromotionsApiModule,
+  NgrxPromotionsConfiguration,
+  NgrxPromotionsConfigurationParameters,
+} from '@backbase/retail/util/promotions';
+
 import { environment } from '../environments/environment';
+
+export const apiConfigFactory = function (): NgrxPromotionsConfiguration {
+  const params: NgrxPromotionsConfigurationParameters = {
+    // set configuration parameters here: check the NgrxPromotionsConfigurationParameters type for options
+  };
+  return new NgrxPromotionsConfiguration(params);
+};
 
 /**
  * Service paths for the individual data modules.
@@ -75,7 +89,7 @@ const dataModulePaths: [InjectionToken<string>, string][] = [
   [TRANSACTIONS_BASE_PATH, '/transaction-manager'],
   [USER_BASE_PATH, '/user-manager'],
   [ENGAGEMENT_BASE_PATH, '/engagement'],
-  [NGRX_PROMOTIONS_BASE_PATH, '/ngrx-promotions']
+  [NGRX_PROMOTIONS_BASE_PATH, '/ngrx-promotions'],
 ];
 
 /**
@@ -96,6 +110,7 @@ const dataModulePaths: [InjectionToken<string>, string][] = [
  * ```
  */
 @NgModule({
+  imports: [NgrxPromotionsApiModule.forRoot(apiConfigFactory)],
   providers: [
     ...dataModulePaths.map(([token, servicePath]) => ({
       provide: token,

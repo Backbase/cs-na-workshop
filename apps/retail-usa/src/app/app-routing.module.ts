@@ -47,7 +47,9 @@ const routes: Routes = [
       {
         path: 'my-accounts',
         loadChildren: () =>
-          import('./journeys/accounts/accounts-transactions-wrapper/wrapper-accounts-transactions-journey.module').then((m) => m.AccountsTransactionsJourneyBundleModule),
+          import('./journeys/accounts/accounts-transactions-wrapper/wrapper-accounts-transactions-journey.module').then(
+            (m) => m.AccountsTransactionsJourneyBundleModule,
+          ),
         data: {
           title: $localize`:@@accounts.nav.item.title:My accounts - Retail Banking`,
           entitlements: PERMISSIONS.canViewMyAccounts,
@@ -57,8 +59,7 @@ const routes: Routes = [
       },
       {
         path: 'marketing',
-        loadChildren: () =>
-          import('@backbase/marketing-journey').then((m) => m.MarketingJourneyModule),
+        loadChildren: () => import('@backbase/marketing-journey').then((m) => m.MarketingJourneyModule),
         data: {
           title: $localize`:@@accounts.nav.item.title:Marketing - Retail Banking`,
           cssClasses: ['container-fluid', 'container'],

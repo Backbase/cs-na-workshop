@@ -11,7 +11,7 @@ import { QuickActionLink } from '../quick-actions.component';
         </div>
         <div class="col-md-4 pt-5">
           <div class="mb-4 mt-5">
-              <bb-marketing-promotion></bb-marketing-promotion>
+            <bb-marketing-promotion></bb-marketing-promotion>
           </div>
           <div class="mb-4 mt-5">
             <bb-campaign-space-ang name="bb-campaign-space-ang-0"></bb-campaign-space-ang>
