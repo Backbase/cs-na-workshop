@@ -24,9 +24,7 @@ export const promotionReducer = createReducer(
 
   on(AppActions.loadPromotionsFailure, (state, { error }) => ({ ...state, error })),
 
-  on(AppActions.loadUserPromotions, (state, actions) =>
-    promotionAdapter.setAll(actions.promotions, { ...state }),
-  ),
+  on(AppActions.loadUserPromotions, (state, actions) => promotionAdapter.setAll(actions.promotions, { ...state })),
 );
 
 export const { selectAll } = promotionAdapter.getSelectors();

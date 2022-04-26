@@ -18,6 +18,7 @@
     "esModuleInterop": true,
     "paths": {
       "@backbase/marketing-journey": ["libs/marketing-journey/src/index.ts"],
+      "@backbase/marketing/ui": ["libs/marketing/ui/src/index.ts"],
       "@backbase/retail/data-access-mocks": ["libs/retail/data-access-mocks/src/index.ts"],
       "@backbase/retail/feature/communication": ["libs/retail/feature/communication/src/index.ts"],
       "@backbase/retail/feature/layout": ["libs/retail/feature/layout/src/index.ts"],

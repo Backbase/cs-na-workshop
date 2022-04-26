@@ -1,5 +1,5 @@
 <ng-container *ngIf="promotions$ | async as promotions; else defaultPromo">
-  <!-- TODO: Add promotion template -->
+  <promotion-card [item]="promotions[0]"></promotion-card>
 </ng-container>
 
 <ng-template #defaultPromo>
