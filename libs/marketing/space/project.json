@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/marketing/space",
+  "sourceRoot": "libs/marketing/space/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/marketing/space/src/test.ts",
+        "tsConfig": "libs/marketing/space/tsconfig.spec.json",
+        "karmaConfig": "libs/marketing/space/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/marketing/space/src/**/*.ts", "libs/marketing/space/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}
