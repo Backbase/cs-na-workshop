@@ -4,9 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { QuickTransferJourneyModule } from '@backbase/quick-transfer-journey-ang';
 import { QuickActionsComponent } from '../quick-actions.component';
 import { CampaignSpaceJourneyBundleModule } from './campaign-space-journey.module';
-import { MarketingPromotionComponent } from './marketing-promotion/marketing-promotion.component';
 
-import { MarketingUiModule } from '@backbase/marketing/ui';
+import { MarketingSpaceModule } from '@backbase/marketing/space';
 import { AccountsTransactionsJourneyWrapperComponent } from './wrapper-accounts-transactions-journey.component';
 
 const routes: Routes = [
@@ -26,9 +25,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AccountsTransactionsJourneyWrapperComponent, QuickActionsComponent, MarketingPromotionComponent],
+  declarations: [AccountsTransactionsJourneyWrapperComponent, QuickActionsComponent],
   imports: [
-    MarketingUiModule,
+    MarketingSpaceModule,
     QuickTransferJourneyModule,
     RouterModule.forChild(routes),
     CommonModule,
