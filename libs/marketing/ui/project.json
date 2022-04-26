@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/marketing/ui",
+  "sourceRoot": "libs/marketing/ui/src",
+  "prefix": "bb",
+  "targets": {
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "main": "libs/marketing/ui/src/test.ts",
+        "tsConfig": "libs/marketing/ui/tsconfig.spec.json",
+        "karmaConfig": "libs/marketing/ui/karma.conf.js"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/marketing/ui/src/**/*.ts", "libs/marketing/ui/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}
