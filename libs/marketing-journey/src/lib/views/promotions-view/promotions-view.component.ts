@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'apps/retail-usa/src/app/+state/app.state';
 import { ActivatedRoute, Router } from '@angular/router';
-import { selectAllPromotions } from '../../+state/promotion/promotion.selectors';
-import { PromotionEntity } from '../../+state/promotion/promotion.models';
+import { getUserPromotions } from 'apps/retail-usa/src/app/+state/app.selectors';
+import { Promotion } from '@backbase/retail/util/promotions';
 
 @Component({
   selector: 'bb-promotions-view',
@@ -12,7 +12,7 @@ import { PromotionEntity } from '../../+state/promotion/promotion.models';
   styleUrls: ['./promotions-view.component.scss'],
 })
 export class PromotionsViewComponent implements OnInit, OnDestroy {
-  promotions$: Observable<PromotionEntity[]>;
+  promotions$: Observable<Promotion[]>;
 
   constructor(
     private store: Store<AppState>,
@@ -22,7 +22,7 @@ export class PromotionsViewComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // Get promotions from store
-    this.promotions$ = this.store.pipe(select(selectAllPromotions));
+    this.promotions$ = this.store.pipe(select(getUserPromotions));
   }
 
   ngOnDestroy() {}
@@ -36,7 +36,7 @@ export class PromotionsViewComponent implements OnInit, OnDestroy {
    * @description
    * Handle click Apply button event emitter
    */
-  async onPromotionSelect(promotion: PromotionEntity): Promise<void> {
+  async onPromotionSelect(promotion: Promotion): Promise<void> {
     console.log('Apply to promotion: ' + promotion.name);
   }
 }

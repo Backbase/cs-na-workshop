@@ -1,4 +1,4 @@
-import { Action, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import * as FormActions from './form.actions';
 import { UserProfile } from '@backbase/retail/util/promotions';
 

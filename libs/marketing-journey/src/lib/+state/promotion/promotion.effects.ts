@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { concatMap, map } from 'rxjs/operators';
-import * as PromotionActions from './promotion.actions';
-import { MockHttpService } from '../../services/mocks.service';
+import { map } from 'rxjs/operators';
 import { fetch } from '@nrwl/angular';
+import * as PromotionActions from './promotion.actions';
+import * as AppActions from 'apps/retail-usa/src/app/+state/app.actions';
+import { PromotionsHttpService } from '@backbase/retail/util/promotions';
 
 @Injectable()
 export class PromotionsEffects {
@@ -12,17 +13,17 @@ export class PromotionsEffects {
       ofType(PromotionActions.loadAllPromotions),
       fetch({
         run: (action) => {
-          return this.mockHttpService
-            .submitPromotionForm(action.user)
-            .pipe(map((promotions) => PromotionActions.loadPromotionsSuccess({ promotions })));
+          return this.promotionsHttpService
+            .submitPromotionForm({ submitPromotionForm: action.user as any })
+            .pipe(map((promotions) => AppActions.loadPromotionsSuccess({ promotions })));
         },
         onError: (action, error) => {
           console.error('Error', error);
-          return PromotionActions.loadPromotionsFailure({ error });
+          return AppActions.loadPromotionsFailure({ error });
         },
       }),
     ),
   );
 
-  constructor(private actions$: Actions, private mockHttpService: MockHttpService) {}
+  constructor(private readonly actions$: Actions, private readonly promotionsHttpService: PromotionsHttpService) {}
 }

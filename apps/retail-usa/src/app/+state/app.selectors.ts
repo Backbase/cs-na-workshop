@@ -1,7 +1,10 @@
-import { Promotion } from '@backbase/retail/util/promotions';
-import { createSelector } from '@ngrx/store';
-import { AppState } from './app.state';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
+import * as fromPromotions from './app.reducers';
 
-export const selectUserPromotions = (state: AppState) => state.promotions;
+export const getPromotionsState = createFeatureSelector<fromPromotions.PromotionState>(
+  fromPromotions.PROMOTION_FEATURE_KEY,
+);
 
-export const userPromotionsSelect = createSelector(selectUserPromotions, (promotions: Promotion[]) => promotions);
+export const getUserPromotions = createSelector(getPromotionsState, fromPromotions.selectAll);
+
+export const arePromotionsLoaded = createSelector(getPromotionsState, (state) => state.loaded);

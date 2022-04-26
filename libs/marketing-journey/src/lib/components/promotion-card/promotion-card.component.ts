@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, ViewEncapsulation, OnInit } from '@angular/core';
+import { Promotion } from '@backbase/retail/util/promotions';
 import { PaymentCard } from '@backbase/ui-ang';
-import { PromotionEntity } from '../../+state/promotion/promotion.models';
 
 @Component({
   selector: 'promotion-card',
@@ -9,7 +9,7 @@ import { PromotionEntity } from '../../+state/promotion/promotion.models';
   encapsulation: ViewEncapsulation.None,
 })
 export class PromotionCardComponent implements OnInit {
-  @Input() item!: PromotionEntity;
+  @Input() item!: Promotion;
   @Output() select = new EventEmitter();
 
   // Default promo card

@@ -6,18 +6,18 @@ import { ConstComponent } from './const.component';
 // STORE.APP
 import { select, Store } from '@ngrx/store';
 import { AppState } from 'apps/retail-usa/src/app/+state/app.state';
+import * as AppSelectors from 'apps/retail-usa/src/app/+state/app.selectors';
 
 // STORE.FORM
 import { getFormData, getUserProfile } from '../../+state/form/form.selectors';
 import * as FormActions from '../../+state/form/form.actions';
 
 // STORE.PROMOTIONS
-import { arePromotionsLoaded } from '../../+state/promotion/promotion.selectors';
 import * as PromotionActions from '../../+state/promotion/promotion.actions';
 
 // RXJS
 import { BehaviorSubject } from 'rxjs';
-import { filter, first, take, tap, takeUntil, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { filter, first, take, tap, takeUntil, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'bb-user-form-view',
@@ -44,7 +44,7 @@ export class UserFormViewComponent extends ConstComponent implements OnInit {
     // Get list of promotions
     this.store
       .pipe(
-        select(arePromotionsLoaded),
+        select(AppSelectors.arePromotionsLoaded),
         tap((promotionsLoaded) => {
           if (!this.loadingPromotions$.value && !promotionsLoaded) {
             this.loadingPromotions$.next(true);
@@ -61,13 +61,6 @@ export class UserFormViewComponent extends ConstComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    /**
-     * Prefill form data when loading the instance
-     */
-    this.store.pipe(select(getFormData), take(1)).subscribe((formData) => {
-      this.formGroup.patchValue(formData);
-    });
-
     /**
      * Save form data to store after 0.5sec of inactivity
      */
@@ -87,6 +80,13 @@ export class UserFormViewComponent extends ConstComponent implements OnInit {
       .subscribe((userProfile) => {
         this.formGroup.patchValue(userProfile);
       });
+
+    /**
+     * Prefill form data when loading the instance
+     */
+    this.store.pipe(select(getFormData), take(1)).subscribe((formData) => {
+      this.formGroup.patchValue(formData);
+    });
   }
 
   /**

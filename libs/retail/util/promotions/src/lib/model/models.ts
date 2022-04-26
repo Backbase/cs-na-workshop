@@ -1,4 +1,3 @@
-export * from './offer';
 export * from './promotion';
 export * from './submitPromotionForm';
 export * from './userProfile';

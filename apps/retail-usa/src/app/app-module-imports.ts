@@ -19,7 +19,7 @@ import { remoteConfigDefaults } from './remote-config/remote-config';
 import { RoutableModalModule } from './routable-modal/routable-modal.module';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppEffects } from './+state/app.effects';
-import { appReducer } from './+state/app.reducers';
+import { reducers } from './+state/app.reducers';
 
 /**
  * Modules in this array are added to the `imports` array of the AppModule
@@ -31,7 +31,7 @@ export const appModuleImports = [
   LayoutModule,
   AppDataModule,
   AppRoutingModule,
-  StoreModule.forRoot(appReducer),
+  StoreModule.forRoot(reducers),
   StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   EffectsModule.forRoot([AppEffects]),
   RemoteConfigModule.forRoot({
