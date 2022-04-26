@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
-import { fetch } from '@nrwl/angular';
 import { ProfileHttpService } from '@backbase/retail/util/promotions';
 import { map, withLatestFrom, switchMap, take } from 'rxjs/operators';
 
 import * as FormActions from './form.actions';
-import * as FormFeature from './form.reducer';
 import * as FormSelectors from './form.selectors';
 
 @Injectable()

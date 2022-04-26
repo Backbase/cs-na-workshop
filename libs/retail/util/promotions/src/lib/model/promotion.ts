@@ -10,13 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { Offer } from './offer';
-
 export interface Promotion {
   ['id']: number;
   ['heading']: string;
-  ['subheading']?: string;
-  ['image']?: string;
-  ['offer']: Offer;
+  ['name']?: string;
+  ['vendor']?: string;
+  ['fee']: string;
   ['description']?: string;
 }
