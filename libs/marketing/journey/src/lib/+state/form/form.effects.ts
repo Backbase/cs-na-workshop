@@ -11,22 +11,7 @@ import * as FormSelectors from './form.selectors';
 export class FormEffects {
   // EXERCISE: SECOND: CREATE EFFECT AND CALL API
   // EXERCISE: THIRD: DETERMINE IF WE ALREADY CALLED API, AND USE STORE INSTEAD
-  getUserProfile$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(FormActions.getUserProfile),
-      mergeMap((action) =>
-        this.profileHttp.getUserProfile().pipe(
-          map((profile) =>
-            FormActions.loadUserProfileSuccess({
-              profile: {
-                ...profile,
-              },
-            }),
-          ),
-        ),
-      ),
-    ),
-  );
+  getUserProfile$ = createEffect(() => this.actions$.pipe(ofType(FormActions.getUserProfile)));
 
   constructor(
     private readonly actions$: Actions,
