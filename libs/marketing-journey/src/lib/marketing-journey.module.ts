@@ -17,6 +17,7 @@ import {
   PaymentCardModule,
   LoadButtonModule,
 } from '@backbase/ui-ang';
+import { MarketingUiModule } from '@backbase/marketing/ui';
 
 import { UserFormViewComponent } from './views/user-form-view/user-form-view.component';
 import { LifeGoalsViewComponent } from './views/life-goals-view/life-goals-view.component';
@@ -25,7 +26,6 @@ import { InputAuthorizedUsersComponent } from './components/input-authorized-use
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { PromotionsEffects } from './+state/promotion/promotion.effects';
-import { PromotionCardComponent } from './components/promotion-card/promotion-card.component';
 
 import * as fromForm from './+state/form/form.reducer';
 import { FormEffects } from './+state/form/form.effects';
@@ -42,7 +42,7 @@ const routes = [
   },
 ];
 
-const uiModules = [ButtonModule, HeaderModule, PaymentCardModule];
+const uiModules = [ButtonModule, HeaderModule, PaymentCardModule, MarketingUiModule];
 
 @NgModule({
   imports: [
@@ -69,7 +69,6 @@ const uiModules = [ButtonModule, HeaderModule, PaymentCardModule];
     UserFormViewComponent,
     LifeGoalsViewComponent,
     PromotionsViewComponent,
-    PromotionCardComponent,
     InputAuthorizedUsersComponent,
   ],
 })
