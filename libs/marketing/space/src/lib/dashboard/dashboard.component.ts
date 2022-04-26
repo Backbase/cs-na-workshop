@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
+    // EXERCISE: GET APP STATE, AND DISPATCH AN EVENT
     this.promotions$ = this.store.pipe(
       takeUntil(this.destroy$),
       select(getUserPromotions),

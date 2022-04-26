@@ -9,6 +9,8 @@ import * as FormSelectors from './form.selectors';
 
 @Injectable()
 export class FormEffects {
+  // EXERCISE: SECOND: CREATE EFFECT AND CALL API
+  // EXERCISE: THIRD: DETERMINE IF WE ALREADY CALLED API, AND USE STORE INSTEAD
   getUserProfile$ = createEffect(() =>
     this.actions$.pipe(
       ofType(FormActions.getUserProfile),
