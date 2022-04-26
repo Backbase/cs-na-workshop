@@ -14,14 +14,17 @@ export class FormEffects {
   getUserProfile$ = createEffect(() =>
     this.actions$.pipe(
       ofType(FormActions.getUserProfile),
-      mergeMap((action) => this.profileHttp.getUserProfile()
-      .pipe(
-        map(profile => FormActions.loadUserProfileSuccess({
-          profile: {
-            ...profile,
-          },
-        })),
-      ))
+      mergeMap((action) =>
+        this.profileHttp.getUserProfile().pipe(
+          map((profile) =>
+            FormActions.loadUserProfileSuccess({
+              profile: {
+                ...profile,
+              },
+            }),
+          ),
+        ),
+      ),
     ),
   );
 
