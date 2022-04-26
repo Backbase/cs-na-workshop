@@ -20,7 +20,6 @@ import {
 import { MarketingUiModule } from '@backbase/marketing/ui';
 
 import { UserFormViewComponent } from './views/user-form-view/user-form-view.component';
-import { LifeGoalsViewComponent } from './views/life-goals-view/life-goals-view.component';
 import { PromotionsViewComponent } from './views/promotions-view/promotions-view.component';
 import { InputAuthorizedUsersComponent } from './components/input-authorized-users/input-authorized-users.component';
 import { StoreModule } from '@ngrx/store';
@@ -42,7 +41,21 @@ const routes = [
   },
 ];
 
-const uiModules = [ButtonModule, HeaderModule, PaymentCardModule, MarketingUiModule];
+const uiModules = [
+  InputTextModule,
+  DropdownSingleSelectModule,
+  InputEmailModule,
+  InputPhoneModule,
+  AmountInputModule,
+  IconModule,
+  InputPasswordModule,
+  InputCheckboxModule,
+  LoadButtonModule,
+  ButtonModule,
+  HeaderModule,
+  PaymentCardModule,
+  MarketingUiModule,
+];
 
 @NgModule({
   imports: [
@@ -50,26 +63,12 @@ const uiModules = [ButtonModule, HeaderModule, PaymentCardModule, MarketingUiMod
     RouterModule.forChild(routes),
     FormsModule,
     ReactiveFormsModule,
-    InputTextModule,
-    DropdownSingleSelectModule,
-    InputEmailModule,
-    InputPhoneModule,
-    AmountInputModule,
-    ButtonModule,
-    IconModule,
-    InputPasswordModule,
-    InputCheckboxModule,
-    LoadButtonModule,
+
     EffectsModule.forFeature([PromotionsEffects]),
     StoreModule.forFeature(fromForm.FORM_FEATURE_KEY, fromForm.reducer),
     EffectsModule.forFeature([FormEffects]),
     ...uiModules,
   ],
-  declarations: [
-    UserFormViewComponent,
-    LifeGoalsViewComponent,
-    PromotionsViewComponent,
-    InputAuthorizedUsersComponent,
-  ],
+  declarations: [UserFormViewComponent, PromotionsViewComponent, InputAuthorizedUsersComponent],
 })
 export class MarketingJourneyModule {}
