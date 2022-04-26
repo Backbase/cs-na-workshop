@@ -1,7 +1,7 @@
 {
   "version": 2,
   "projects": {
-    "marketing-journey": "libs/marketing-journey",
+    "marketing-journey": "libs/marketing/journey",
     "marketing-ui": "libs/marketing/ui",
     "retail-assets": "libs/retail/assets",
     "retail-communication": "libs/retail/feature/communication",
