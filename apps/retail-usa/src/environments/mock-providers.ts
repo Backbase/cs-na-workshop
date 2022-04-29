@@ -88,47 +88,8 @@ import { TemplateRegistry } from '@backbase/foundation-ang/core';
 import { createMocks, createMocksInterceptor } from '@backbase/foundation-ang/data-http';
 import { NotificationsMocksProvider } from '@backbase/notifications-mocks-provider-ang';
 import { SummaryMockInterceptor } from '@backbase/retail/data-access-mocks';
-import { productSummaryContextArrangementsMocks, promotionsMock, userMock } from './mock-data';
-import { ProfileHttpServiceMocksProvider, PromotionsHttpServiceMocksProvider } from '@backbase/retail/util/promotions';
-
-const SubmitCardPromotionMockProvider = createMocks([
-  {
-    urlPattern: '/promotions/submit',
-    method: 'POST',
-    responses: [
-      {
-        status: 200,
-        body: promotionsMock,
-      },
-    ],
-  },
-]);
-
-const AcceptCardPromotionMockProvider = createMocks([
-  {
-    urlPattern: '/users/me/promotion',
-    method: 'GET',
-    responses: [
-      {
-        status: 200,
-        body: {},
-      },
-    ],
-  },
-]);
-
-//export const ProfileHttpServiceMocksProvider: Provider = createMocks([
-//  {
-//    urlPattern: '/users/me/profile',
-//    method: 'GET',
-//    responses: [
-//      {
-//        status: 200,
-//        body: userMock,
-//      },
-//    ],
-//  },
-//]);
+import { productSummaryContextArrangementsMocks } from './mock-data';
+import { ProfileHttpServiceMocksProvider, PromotionsHttpServiceMocksProvider, ProfileHttpServiceGetUserProfileMocksProvider, ProfileHttpServiceGetUserPromotionsMocksProvider, PromotionsHttpServiceSubmitPromotionFormMocksProvider } from '@backbase/retail/util/promotions';
 
 const ProductSummaryContextArrangementsMockProvider = createMocks([
   {
@@ -217,9 +178,9 @@ export const mockProviders: Provider[] = [
   NotificationPreferenceServiceUpdateNotificationPreferenceMocksProvider,
   NotificationPreferenceServiceMocksProvider,
   SelectCampaignServiceSelectCampaignMocksProvider,
-  SubmitCardPromotionMockProvider,
-  AcceptCardPromotionMockProvider,
-  //ProfileHttpServiceMocksProvider,
   ProfileHttpServiceMocksProvider,
   PromotionsHttpServiceMocksProvider,
+  ProfileHttpServiceGetUserProfileMocksProvider,
+  ProfileHttpServiceGetUserPromotionsMocksProvider,
+  PromotionsHttpServiceSubmitPromotionFormMocksProvider
 ];
