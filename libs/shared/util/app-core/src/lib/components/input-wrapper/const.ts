@@ -1,4 +1,4 @@
 export enum VALIDATION_ERRORS {
   REQUIRED = 'required',
-  PATTERN = 'pattern'
+  PATTERN = 'pattern',
 }

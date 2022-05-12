@@ -89,7 +89,13 @@ import { createMocks, createMocksInterceptor } from '@backbase/foundation-ang/da
 import { NotificationsMocksProvider } from '@backbase/notifications-mocks-provider-ang';
 import { SummaryMockInterceptor } from '@backbase/retail/data-access-mocks';
 import { productSummaryContextArrangementsMocks } from './mock-data';
-import { ProfileHttpServiceMocksProvider, PromotionsHttpServiceMocksProvider, ProfileHttpServiceGetUserProfileMocksProvider, ProfileHttpServiceGetUserPromotionsMocksProvider, PromotionsHttpServiceSubmitPromotionFormMocksProvider } from '@backbase/retail/util/promotions';
+import {
+  ProfileHttpServiceMocksProvider,
+  PromotionsHttpServiceMocksProvider,
+  ProfileHttpServiceGetUserProfileMocksProvider,
+  ProfileHttpServiceGetUserPromotionsMocksProvider,
+  PromotionsHttpServiceSubmitPromotionFormMocksProvider,
+} from '@backbase/retail/util/promotions';
 
 const ProductSummaryContextArrangementsMockProvider = createMocks([
   {
@@ -182,5 +188,5 @@ export const mockProviders: Provider[] = [
   PromotionsHttpServiceMocksProvider,
   ProfileHttpServiceGetUserProfileMocksProvider,
   ProfileHttpServiceGetUserPromotionsMocksProvider,
-  PromotionsHttpServiceSubmitPromotionFormMocksProvider
+  PromotionsHttpServiceSubmitPromotionFormMocksProvider,
 ];

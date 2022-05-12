@@ -8,9 +8,8 @@ describe('InputWrapperComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputWrapperComponent ]
-    })
-    .compileComponents();
+      declarations: [InputWrapperComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

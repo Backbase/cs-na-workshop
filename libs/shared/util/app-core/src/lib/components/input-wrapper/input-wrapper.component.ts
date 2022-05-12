@@ -9,7 +9,7 @@ import { VALIDATION_ERRORS } from './const';
     <div class="form-group">
       <ng-content></ng-content>
       <bb-input-validation-message-ui [showErrors]="errorMessage">
-        <span>{{errorMessage}}</span>
+        <span>{{ errorMessage }}</span>
       </bb-input-validation-message-ui>
     </div>
   `,
@@ -17,18 +17,17 @@ import { VALIDATION_ERRORS } from './const';
 export class InputWrapperComponent implements OnInit {
   @ContentChild(InputWrapperDirective, { static: true })
   wrapperDirective: InputWrapperDirective;
-  
+
   @Input() errorMessages = {
     required: 'Field is required',
-    pattern: 'Incorrect format'
+    pattern: 'Incorrect format',
   };
 
   ngOnInit() {
     if (!this.wrapperDirective) {
-      throw new Error('wrapperDirective is required!')
+      throw new Error('wrapperDirective is required!');
     }
   }
-
 
   get errorMessage() {
     let message = '';
@@ -40,8 +39,8 @@ export class InputWrapperComponent implements OnInit {
           message = this.errorMessages.required;
           break;
         case VALIDATION_ERRORS.PATTERN in controlErrors:
-            message = this.errorMessages.pattern;
-            break;
+          message = this.errorMessages.pattern;
+          break;
         default:
           break;
       }
