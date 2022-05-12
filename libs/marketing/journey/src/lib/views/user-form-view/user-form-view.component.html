@@ -8,126 +8,139 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="form-group col-12 col-md-4">
+      <bb-input-wrapper class="col-12 col-md-4">
         <bb-input-text-ui
           label="First Name"
           formControlName="firstName"
           placeholder="Name"
           autoComplete="given-name"
+          bbInputWrapper
         ></bb-input-text-ui>
-      </div>
-      <div class="form-group col-12 col-md-4">
+      </bb-input-wrapper>
+
+      <bb-input-wrapper class="col-12 col-md-4">
         <bb-input-text-ui
           label="Middle Name"
           formControlName="middleName"
           placeholder="Name"
           autoComplete="additional-name"
+          bbInputWrapper
         ></bb-input-text-ui>
-      </div>
-      <div class="form-group col-12 col-md-4">
+      </bb-input-wrapper>
+      <bb-input-wrapper class="col-12 col-md-4">
         <bb-input-text-ui
           label="Last Name"
           formControlName="lastName"
           placeholder="Name"
           autoComplete="family-name"
+          bbInputWrapper
         ></bb-input-text-ui>
-      </div>
+      </bb-input-wrapper>
     </div>
     <div class="row">
-      <div class="form-group col-12 col-md-6">
-        <bb-input-email-ui label="E-mail address" formControlName="email" placeholder="Please enter a value...">
+      <bb-input-wrapper class="col-12 col-md-6">
+        <bb-input-email-ui label="E-mail address" formControlName="email" placeholder="Please enter a value..." bbInputWrapper>
         </bb-input-email-ui>
-      </div>
-      <div class="form-group col-12 col-md-6">
+      </bb-input-wrapper>
+      <bb-input-wrapper class="col-12 col-md-6">
         <bb-input-phone-ui
           label="Phone"
           formControlName="phoneNumber"
           placeholder="Phone number without country code"
           autoComplete="tel-national"
+          bbInputWrapper
         ></bb-input-phone-ui>
-      </div>
+      </bb-input-wrapper>
     </div>
     <div class="row">
-      <div class="form-group col-12 col-md-6">
+      <bb-input-wrapper class="col-12 col-md-6">
         <bb-input-text-ui
           label="Last 4 of Social Security Number"
           formControlName="ssn"
           placeholder="XXXX"
+          bbInputWrapper
         ></bb-input-text-ui>
-      </div>
-      <div class="form-group col-12 col-md-6">
-        <bb-amount-input-ui label="Income" formControlName="income" currency="USD" placeholder="0.00">
+      </bb-input-wrapper>
+      <bb-input-wrapper class="col-12 col-md-6">
+        <bb-amount-input-ui label="Income" formControlName="income" currency="USD" placeholder="0.00" bbInputWrapper>
         </bb-amount-input-ui>
-      </div>
+      </bb-input-wrapper>
     </div>
     <div class="row">
-      <div class="form-group col-12 col-md-6">
+      <bb-input-wrapper class="col-12 col-md-6">
         <bb-dropdown-single-select-ui
           label="Marital Status"
           placeholder="Select Marital Status"
           formControlName="maritalStatus"
           [options]="martialStatus"
-          class="d-block bb-block bb-block--lg"
+          class="d-block"
+          bbInputWrapper
         >
         </bb-dropdown-single-select-ui>
-      </div>
-      <div class="form-group col-12 col-md-6">
+      </bb-input-wrapper>
+      <bb-input-wrapper class="col-12 col-md-6">
         <bb-dropdown-single-select-ui
           label="Employment Status"
           placeholder="Select Employment Status"
           formControlName="employmentStatus"
           [options]="employmentStatus"
-          class="d-block bb-block bb-block--lg"
+          class="d-block"
+          bbInputWrapper
         >
         </bb-dropdown-single-select-ui>
-      </div>
+      </bb-input-wrapper>
     </div>
     <fieldset formGroupName="address">
       <legend>Address</legend>
       <div class="row">
-        <div class="form-group col-12 col-md-6">
+        <bb-input-wrapper class="col-12 col-md-6">
           <bb-input-text-ui
             label="Address line 1"
             formControlName="line1"
             placeholder="123 Street"
             autoComplete="address-line1"
+            bbInputWrapper
           ></bb-input-text-ui>
-        </div>
-        <div class="form-group col-12 col-md-6">
+        </bb-input-wrapper>
+        <bb-input-wrapper class="col-12 col-md-6">
           <bb-input-text-ui
             label="Address line 2"
             formControlName="line2"
             placeholder="Apt 23"
             autoComplete="address-line2"
+            bbInputWrapper
           ></bb-input-text-ui>
-        </div>
+        </bb-input-wrapper>
       </div>
       <div class="row">
-        <div class="form-group col-12 col-md-4">
+        <bb-input-wrapper class="col-12 col-md-4">
           <bb-input-text-ui
             label="City"
             formControlName="city"
             placeholder="Atlanta"
             autoComplete="address-level2"
+            bbInputWrapper
           ></bb-input-text-ui>
-        </div>
-        <div class="form-group col-12 col-md-4">
+        </bb-input-wrapper>
+        <bb-input-wrapper class="col-12 col-md-4">
           <bb-dropdown-single-select-ui
             label="State"
             placeholder="Select State"
             formControlName="state"
             [options]="states"
+            bbInputWrapper
           >
           </bb-dropdown-single-select-ui>
-        </div>
-        <div class="form-group col-12 col-md-4">
+        </bb-input-wrapper>
+        <bb-input-wrapper class="col-12 col-md-4">
           <bb-input-text-ui
             label="Zip Code"
             formControlName="zipCode"
             placeholder="XXXXX-XXXX"
             autoComplete="postal-code"
+            bbInputWrapper
           ></bb-input-text-ui>
-        </div>
+        </bb-input-wrapper>
       </div>
     </fieldset>
     <fieldset formArrayName="authorizedUsers" *ngIf="authorizedUsers.length">
@@ -143,12 +156,13 @@
     </button>
 
     <div class="row">
-      <div class="form-group col-12">
+      <bb-input-wrapper class="col-12">
         <bb-input-checkbox-ui
           label="I agree with the Terms & Conditions"
           formControlName="agreement"
+          bbInputWrapper
         ></bb-input-checkbox-ui>
-      </div>
+      </bb-input-wrapper>
     </div>
   </div>
   <div class="card-footer bb-button-bar bb-block bb-block-md">
@@ -158,6 +172,7 @@
       [isLoading]="loadingPromotions$ | async"
       buttonSize="md"
       (click)="onSubmit()"
+      [disabled]="formGroup.invalid"
     >
       Next
     </bb-load-button-ui>
