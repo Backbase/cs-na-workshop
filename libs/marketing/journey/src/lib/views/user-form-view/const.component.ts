@@ -26,23 +26,23 @@ export class ConstComponent implements OnDestroy {
    * User Form formGroup
    */
   formGroup = this.fb.group({
-    firstName: '',
-    middleName: '',
-    lastName: '',
-    email: '',
-    phoneNumber: '',
+    firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
+    middleName: [''],
+    lastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
+    email: ['', Validators.required, Validators.email],
+    phoneNumber: ['', Validators.required],
     address: this.fb.group({
-      line1: '',
-      line2: '',
-      city: '',
-      state: '',
-      zipCode: '',
+      line1: ['', Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)],
+      line2: ['', [Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
+      city: ['', Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)],
+      state: ['', Validators.required],
+      zipCode: ['', [Validators.required, Validators.pattern(/^[0-9]{5}(?:-[0-9]{4})?$/)]],
     }),
-    income: '',
-    employmentStatus: '',
-    maritalStatus: '',
-    ssn: '',
-    authorizedUsers: this.fb.array([]),
+    income: ['', Validators.required],
+    employmentStatus: ['', Validators.required],
+    maritalStatus: ['', Validators.required],
+    ssn: ['', Validators.required],
+    authorizedUsers: this.fb.array([], []),
     agreement: [false, Validators.requiredTrue],
   });
 
