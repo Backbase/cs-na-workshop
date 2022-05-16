@@ -26,7 +26,7 @@ export const environment: Environment = {
   landingPageUrl: '/',
   apiRoot: '/api',
   baseHref: '/',
-  googleApiKey: 'AIzaSyBER_2nN8NbwS0od7mSG0bQXbj6xTlR80w',
+  googleApiKey: '$[GOOGLE_API_KEY}',
 };
 
 /*

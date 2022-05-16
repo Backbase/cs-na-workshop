@@ -21,7 +21,7 @@ export const environment: Environment = {
   landingPageUrl: '/',
   apiRoot: '${API_ROOT::-1}',
   baseHref: '${BASE_HREF}',
-  googleApiKey: 'AIzaSyBER_2nN8NbwS0od7mSG0bQXbj6xTlR80w',
+  googleApiKey: '$[GOOGLE_API_KEY}',
 };
 
 export const authConfig: (baseUrl: string) => AuthConfig = (locale: string = '') => ({
