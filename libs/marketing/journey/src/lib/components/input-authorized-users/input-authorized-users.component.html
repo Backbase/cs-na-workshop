@@ -1,8 +1,8 @@
 <div class="card" *ngIf="formGroup" [formGroup]="formGroup">
   <div class="card-body">
     <div class="row">
-      <div class="col-12 col-md-6">
-        <bb-icon-ui name="user" size="xl"></bb-icon-ui>
+      <div class="col-12 col-md-6 flex">
+        <bb-icon-ui name="user" size="xl" class="mr-1"></bb-icon-ui>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
           standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
@@ -32,28 +32,41 @@
         <div class="form-group col-12">
           <bb-input-email-ui label="Email" formControlName="email" placeholder="Email"></bb-input-email-ui>
         </div>
-        <div class="form-group col-12">
-          <bb-input-password-ui
-            label="Password"
-            placeholder="Please choose a new password"
-            formControlName="password"
-            autocomplete="new-password"
-            [showVisibilityControl]="true"
-          >
-          </bb-input-password-ui>
-        </div>
-        <div class="form-group col-12">
-          <bb-input-password-ui
-            label="Confirm Password"
-            placeholder="Please confirm new password"
-            formControlName="confirm"
-            autocomplete="new-password"
-            [showVisibilityControl]="true"
-          >
-          </bb-input-password-ui>
-        </div>
       </div>
     </div>
+    <fieldset>
+      <legend>Account Information</legend>
+          <div class="row">
+      <div class="form-group col-12">
+        <bb-input-text-ui
+          label="Username"
+          formControlName="username"
+          placeholder="Username"
+          safeUsername
+        ></bb-input-text-ui>
+      </div>
+      <div class="form-group col-12">
+        <bb-input-password-ui
+          label="Password"
+          placeholder="Please choose a new password"
+          formControlName="password"
+          autocomplete="new-password"
+          [showVisibilityControl]="true"
+        >
+        </bb-input-password-ui>
+      </div>
+      <div class="form-group col-12">
+        <bb-input-password-ui
+          label="Confirm Password"
+          placeholder="Please confirm new password"
+          formControlName="confirm"
+          autocomplete="new-password"
+          [showVisibilityControl]="true"
+        >
+        </bb-input-password-ui>
+      </div>
+    </div>
+    </fieldset>
   </div>
   <div class="card-footer bb-button-bar bb-block bb-block-md">
     <button bbButton color="danger" class="bb-button-bar__button">Cancel</button>

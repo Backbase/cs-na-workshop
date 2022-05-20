@@ -42,7 +42,7 @@ export class ConstComponent implements OnDestroy {
     employmentStatus: ['', Validators.required],
     maritalStatus: ['', Validators.required],
     ssn: ['', Validators.required],
-    authorizedUsers: this.fb.array([], []),
+    authorizedUsers: this.fb.array([], [Validators.required]),
     agreement: [false, Validators.requiredTrue],
   });
 
@@ -54,11 +54,12 @@ export class ConstComponent implements OnDestroy {
 
   addUser() {
     const userForm = this.fb.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      confirm: '',
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      confirm: ['', Validators.required],
     });
 
     this.authorizedUsers.push(userForm);
