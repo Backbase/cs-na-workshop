@@ -18,6 +18,7 @@ import {
   LoadButtonModule,
 } from '@backbase/ui-ang';
 import { MarketingUiModule } from '@backbase/marketing/ui';
+import { DirectivesModule } from '@backbase/shared/util/app-core';
 
 import { UserFormViewComponent } from './views/user-form-view/user-form-view.component';
 import { PromotionsViewComponent } from './views/promotions-view/promotions-view.component';
@@ -68,6 +69,7 @@ const uiModules = [
     StoreModule.forFeature(fromForm.FORM_FEATURE_KEY, fromForm.reducer),
     EffectsModule.forFeature([FormEffects]),
     ...uiModules,
+    DirectivesModule,
   ],
   declarations: [UserFormViewComponent, PromotionsViewComponent, InputAuthorizedUsersComponent],
 })

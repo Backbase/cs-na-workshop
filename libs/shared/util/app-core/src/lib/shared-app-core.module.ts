@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { LOCALE_ID, ModuleWithProviders, NgModule, Optional } from '@angular/core';
 import { ENTITLEMENTS_CONFIG, EntitlementsModule } from '@backbase/foundation-ang/entitlements';
 import { PAGE_CONFIG, PUBSUB, PubSubService, SET_LOCALE } from '@backbase/foundation-ang/web-sdk';
+import { DirectivesModule } from './directives/directives.module';
 
 export function concatUrl(...items: Array<string>) {
   return items
@@ -29,7 +30,8 @@ const pageConfigFactory =
   });
 
 @NgModule({
-  imports: [EntitlementsModule],
+  imports: [EntitlementsModule, DirectivesModule],
+  exports: [DirectivesModule],
   providers: [
     {
       provide: PUBSUB,
