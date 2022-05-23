@@ -151,15 +151,16 @@
     <fieldset formArrayName="authorizedUsers" *ngIf="authorizedUsers.length">
       <legend>Authorized Users</legend>
       <bb-input-authorized-users
-        *ngFor="let authUser of authorizedUsers.controls"
+        class="d-block mb-3"
+        *ngFor="let authUser of authorizedUsers.controls; let i = index"
         [formGroup]="authUser"
+        (remove)="removeUser(i)"
       ></bb-input-authorized-users>
     </fieldset>
     <button bbButton type="button" [block]="true" color="secondary" (click)="addUser()" class="mb-3">
       <bb-icon-ui name="add"> </bb-icon-ui>
       Add Authorized User
     </button>
-
     <div class="row">
       <bb-input-wrapper class="col-12">
         <bb-input-checkbox-ui

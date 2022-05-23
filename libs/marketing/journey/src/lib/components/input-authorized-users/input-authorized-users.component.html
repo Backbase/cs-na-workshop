@@ -1,8 +1,8 @@
 <div class="card" *ngIf="formGroup" [formGroup]="formGroup">
   <div class="card-body">
     <div class="row">
-      <div class="col-12 col-md-6">
-        <bb-icon-ui name="user" size="xl"></bb-icon-ui>
+      <div class="col-12 col-md-6 flex">
+        <bb-icon-ui name="user" size="xl" class="mr-1"></bb-icon-ui>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
           standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
@@ -13,6 +13,12 @@
         </p>
       </div>
       <div class="col-12 col-md-6">
+        <div class="col-12 text-right">
+          <button bbButton [color]="'danger'" [buttonSize]="'sm'" class="btn-circle" title="Remove User" (click)="remove.emit()">
+            <bb-icon-ui name="times"></bb-icon-ui>
+            <span class="sr-only">Remove</span>
+          </button>
+        </div>
         <div class="form-group col-12">
           <bb-input-text-ui
             label="First Name"
@@ -31,6 +37,18 @@
         </div>
         <div class="form-group col-12">
           <bb-input-email-ui label="Email" formControlName="email" placeholder="Email"></bb-input-email-ui>
+        </div>
+      </div>
+    </div>
+    <fieldset class="bb-fieldset">
+      <legend>Account Information</legend>
+      <div class="row">
+        <div class="form-group col-12">
+          <bb-input-text-ui
+            label="Username"
+            formControlName="username"
+            placeholder="Username"
+          ></bb-input-text-ui>
         </div>
         <div class="form-group col-12">
           <bb-input-password-ui
@@ -53,10 +71,10 @@
           </bb-input-password-ui>
         </div>
       </div>
-    </div>
+    </fieldset>
+    <bb-address-form formGroupName="address"></bb-address-form>
   </div>
   <div class="card-footer bb-button-bar bb-block bb-block-md">
-    <button bbButton color="danger" class="bb-button-bar__button">Cancel</button>
-    <button bbButton color="primary" class="bb-button-bar__button">Add User</button>
+    <button bbButton color="danger" class="bb-button-bar__button" (click)="remove.emit()">Remove</button>
   </div>
 </div>

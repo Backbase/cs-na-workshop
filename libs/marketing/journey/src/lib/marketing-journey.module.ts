@@ -71,6 +71,10 @@ const uiModules = [
     ...uiModules,
     DirectivesModule,
   ],
-  declarations: [UserFormViewComponent, PromotionsViewComponent, InputAuthorizedUsersComponent],
+  declarations: [
+    UserFormViewComponent,
+    PromotionsViewComponent,
+    InputAuthorizedUsersComponent,
+  ],
 })
 export class MarketingJourneyModule {}

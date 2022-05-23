@@ -41,6 +41,9 @@ export class InputWrapperComponent implements OnInit {
         case VALIDATION_ERRORS.PATTERN in controlErrors:
           message = this.errorMessages.pattern;
           break;
+        case VALIDATION_ERRORS.UNSAFE in controlErrors:
+          message = this.errorMessages.pattern;
+          break;
         default:
           break;
       }

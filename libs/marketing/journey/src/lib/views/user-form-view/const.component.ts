@@ -57,11 +57,16 @@ export class ConstComponent implements OnDestroy {
       firstName: '',
       lastName: '',
       email: '',
+      username: '',
       password: '',
       confirm: '',
     });
 
     this.authorizedUsers.push(userForm);
+  }
+
+  removeUser(index: number){
+    this.authorizedUsers.removeAt(index);
   }
 
   ngOnDestroy() {

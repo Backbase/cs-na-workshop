@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ControlContainer } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { ControlContainer } from '@angular/forms';
   styleUrls: ['./input-authorized-users.component.scss'],
 })
 export class InputAuthorizedUsersComponent {
+  @Output() remove = new EventEmitter();
   constructor(public controlContainer: ControlContainer) {}
 
   get formGroup() {
