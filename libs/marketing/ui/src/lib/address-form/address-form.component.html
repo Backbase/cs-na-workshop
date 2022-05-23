@@ -1,0 +1,53 @@
+<fieldset class="bb-fieldset" [formGroup]="formGroup">
+    <legend>Address</legend>
+    <div class="row">
+      <bb-input-wrapper class="col-12 col-md-6">
+        <bb-input-text-ui
+          label="Address line 1"
+          formControlName="line1"
+          placeholder="123 Street"
+          autoComplete="address-line1"
+          bbInputWrapper
+        ></bb-input-text-ui>
+      </bb-input-wrapper>
+      <bb-input-wrapper class="col-12 col-md-6">
+        <bb-input-text-ui
+          label="Address line 2"
+          formControlName="line2"
+          placeholder="Apt 23"
+          autoComplete="address-line2"
+          bbInputWrapper
+        ></bb-input-text-ui>
+      </bb-input-wrapper>
+    </div>
+    <div class="row">
+      <bb-input-wrapper class="col-12 col-md-4">
+        <bb-input-text-ui
+          label="City"
+          formControlName="city"
+          placeholder="Atlanta"
+          autoComplete="address-level2"
+          bbInputWrapper
+        ></bb-input-text-ui>
+      </bb-input-wrapper>
+      <bb-input-wrapper class="col-12 col-md-4">
+        <bb-dropdown-single-select-ui
+          label="State"
+          placeholder="Select State"
+          formControlName="state"
+          [options]="states"
+          bbInputWrapper
+        >
+        </bb-dropdown-single-select-ui>
+      </bb-input-wrapper>
+      <bb-input-wrapper class="col-12 col-md-4">
+        <bb-input-text-ui
+          label="Zip Code"
+          formControlName="zipCode"
+          placeholder="XXXXX-XXXX"
+          autoComplete="postal-code"
+          bbInputWrapper
+        ></bb-input-text-ui>
+      </bb-input-wrapper>
+    </div>
+  </fieldset>
