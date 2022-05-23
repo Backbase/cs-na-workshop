@@ -29,6 +29,7 @@ import { PromotionsEffects } from './+state/promotion/promotion.effects';
 
 import * as fromForm from './+state/form/form.reducer';
 import { FormEffects } from './+state/form/form.effects';
+import { SafeUsernameValidatorDirective } from './components/input-authorized-users/safe-username.directive';
 
 const routes = [
   { path: '', redirectTo: 'info', pathMatch: 'full' },
@@ -71,6 +72,11 @@ const uiModules = [
     ...uiModules,
     DirectivesModule,
   ],
-  declarations: [UserFormViewComponent, PromotionsViewComponent, InputAuthorizedUsersComponent],
+  declarations: [
+    UserFormViewComponent,
+    PromotionsViewComponent,
+    InputAuthorizedUsersComponent,
+    SafeUsernameValidatorDirective,
+  ],
 })
 export class MarketingJourneyModule {}
