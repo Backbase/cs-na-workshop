@@ -29,21 +29,21 @@ export class ConstComponent implements OnDestroy {
     firstName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
     middleName: [''],
     lastName: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
-    email: ['', Validators.required, Validators.email],
-    phoneNumber: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    phoneNumber: ['', [Validators.required]],
     address: this.fb.group({
-      line1: ['', Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)],
-      line2: ['', [Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-      city: ['', Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)],
-      state: ['', Validators.required],
+      line1: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9 ]+$/)]],
+      line2: ['', [Validators.pattern(/^[a-zA-Z0-9 ]+$/)]],
+      city: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
+      state: ['', [Validators.required]],
       zipCode: ['', [Validators.required, Validators.pattern(/^[0-9]{5}(?:-[0-9]{4})?$/)]],
     }),
-    income: ['', Validators.required],
-    employmentStatus: ['', Validators.required],
-    maritalStatus: ['', Validators.required],
-    ssn: ['', Validators.required],
+    income: ['', [Validators.required]],
+    employmentStatus: ['', [Validators.required]],
+    maritalStatus: ['', [Validators.required]],
+    ssn: ['', [Validators.required]],
     authorizedUsers: this.fb.array([], [Validators.required]),
-    agreement: [false, Validators.requiredTrue],
+    agreement: [false, [Validators.requiredTrue]],
   });
 
   constructor(protected fb: FormBuilder) {}
@@ -60,9 +60,20 @@ export class ConstComponent implements OnDestroy {
       username: ['', Validators.required],
       password: ['', Validators.required],
       confirm: ['', Validators.required],
+      address: this.fb.group({
+        line1: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9 ]+$/)]],
+        line2: ['', [Validators.pattern(/^[a-zA-Z0-9 ]+$/)]],
+        city: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]*$/)]],
+        state: ['', [Validators.required]],
+        zipCode: ['', [Validators.required, Validators.pattern(/^[0-9]{5}(?:-[0-9]{4})?$/)]],
+      }),
     });
 
     this.authorizedUsers.push(userForm);
+  }
+
+  removeUser(index: number){
+    this.authorizedUsers.removeAt(index);
   }
 
   ngOnDestroy() {
