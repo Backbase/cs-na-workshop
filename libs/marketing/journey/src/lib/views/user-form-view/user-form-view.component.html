@@ -125,7 +125,7 @@
       type="submit"
       [isLoading]="loadingPromotions$ | async"
       buttonSize="md"
-      (click)="onSubmit()"
+      (click)="!formGroup.invalid && onSubmit()"
       [disabled]="formGroup.invalid"
     >
       Next
