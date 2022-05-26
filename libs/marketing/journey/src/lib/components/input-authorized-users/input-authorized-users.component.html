@@ -14,65 +14,81 @@
       </div>
       <div class="col-12 col-md-6">
         <div class="col-12 text-right">
-          <button bbButton [color]="'danger'" [buttonSize]="'sm'" class="btn-circle" title="Remove User" (click)="remove.emit()">
+          <button
+            bbButton
+            [color]="'danger'"
+            [buttonSize]="'sm'"
+            class="btn-circle"
+            title="Remove User"
+            (click)="remove.emit()"
+          >
             <bb-icon-ui name="times"></bb-icon-ui>
             <span class="sr-only">Remove</span>
           </button>
         </div>
-        <div class="form-group col-12">
+        <bb-input-wrapper class="col-12">
           <bb-input-text-ui
             label="First Name"
             formControlName="firstName"
             placeholder="Name"
             autoComplete="given-name"
+            bbInputWrapper
           ></bb-input-text-ui>
-        </div>
-        <div class="form-group col-12">
+        </bb-input-wrapper>
+        <bb-input-wrapper class="col-12">
           <bb-input-text-ui
             label="Last Name"
             formControlName="lastName"
             placeholder="Name"
             autoComplete="family-name"
+            bbInputWrapper
           ></bb-input-text-ui>
-        </div>
-        <div class="form-group col-12">
-          <bb-input-email-ui label="Email" formControlName="email" placeholder="Email"></bb-input-email-ui>
-        </div>
+        </bb-input-wrapper>
+        <bb-input-wrapper class="col-12">
+          <bb-input-email-ui
+            label="Email"
+            formControlName="email"
+            placeholder="Email"
+            bbInputWrapper
+          ></bb-input-email-ui>
+        </bb-input-wrapper>
       </div>
     </div>
     <fieldset class="bb-fieldset">
       <legend>Account Information</legend>
       <div class="row">
-        <div class="form-group col-12">
+        <bb-input-wrapper class="col-12">
           <bb-input-text-ui
             label="Username"
             formControlName="username"
             placeholder="Username"
+            bbInputWrapper
           ></bb-input-text-ui>
-        </div>
-        <div class="form-group col-12">
+        </bb-input-wrapper>
+        <bb-input-wrapper class="col-12">
           <bb-input-password-ui
             label="Password"
             placeholder="Please choose a new password"
             formControlName="password"
             autocomplete="new-password"
             [showVisibilityControl]="true"
+            bbInputWrapper
           >
           </bb-input-password-ui>
-        </div>
-        <div class="form-group col-12">
+        </bb-input-wrapper>
+        <bb-input-wrapper class="col-12">
           <bb-input-password-ui
             label="Confirm Password"
             placeholder="Please confirm new password"
             formControlName="confirm"
             autocomplete="new-password"
             [showVisibilityControl]="true"
+            bbInputWrapper
           >
           </bb-input-password-ui>
-        </div>
+        </bb-input-wrapper>
       </div>
     </fieldset>
-    <bb-address-form formGroupName="address"></bb-address-form>
   </div>
   <div class="card-footer bb-button-bar bb-block bb-block-md">
     <button bbButton color="danger" class="bb-button-bar__button" (click)="remove.emit()">Remove</button>
